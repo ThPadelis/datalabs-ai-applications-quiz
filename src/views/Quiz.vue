@@ -5,6 +5,7 @@ import QuestionCard from "@/components/QuestionCard.vue";
 import QuizResults from "@/components/QuizResults.vue";
 import UnansweredQuestionsModal from "@/components/UnansweredQuestionsModal.vue";
 import LeaveQuizModal from "@/components/LeaveQuizModal.vue";
+import BaseButton from "@/components/BaseButton.vue";
 import { useIndexedDB } from "@/composables/useIndexedDB";
 import quizData from "@/assets/data/voucher_ai_quizzes.json";
 
@@ -193,25 +194,28 @@ onUnmounted(() => {
 
     <div v-else>
       <div class="mb-6">
-        <button
+        <BaseButton
+          variant="ghost"
+          size="sm"
           @click="attemptGoBack"
-          class="flex items-center text-gray-600 hover:text-gray-900 mb-4"
         >
-          <svg
-            class="w-5 h-5 mr-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+          <template #icon-left>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </template>
           Επιστροφή
-        </button>
+        </BaseButton>
 
         <div class="mb-4">
           <h2 class="text-2xl font-bold text-gray-900">
@@ -267,52 +271,47 @@ onUnmounted(() => {
     />
 
       <div class="flex justify-between items-center mt-6">
-        <button
-          @click="previousQuestion"
-          class="flex items-center px-6 py-3 rounded-lg font-medium transition-all bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600"
-        >
-          <svg
-            class="w-5 h-5 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+        <BaseButton variant="secondary" @click="previousQuestion">
+          <template #icon-left>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </template>
           Προηγούμενη
-        </button>
+        </BaseButton>
 
-        <button
-          @click="attemptFinishQuiz"
-          class="px-6 py-3 rounded-lg font-medium transition-all bg-green-600 text-white hover:bg-green-700"
-        >
+        <BaseButton variant="success" @click="attemptFinishQuiz">
           Ολοκλήρωση Αξιολόγησης
-        </button>
+        </BaseButton>
 
-        <button
-          @click="nextQuestion"
-          class="flex items-center px-6 py-3 rounded-lg font-medium transition-all bg-blue-600 text-white hover:bg-blue-700"
-        >
+        <BaseButton variant="primary" @click="nextQuestion">
           Επόμενη
-          <svg
-            class="w-5 h-5 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
+          <template #icon-right>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </template>
+        </BaseButton>
       </div>
     </div>
 
@@ -332,12 +331,9 @@ onUnmounted(() => {
 
   <div v-else class="text-center py-12">
     <p class="text-gray-500">Η αξιολόγηση δεν βρέθηκε.</p>
-    <button
-      @click="confirmLeave"
-      class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-    >
+    <BaseButton variant="primary" class="mt-4" @click="confirmLeave">
       Επιστροφή στο Dashboard
-    </button>
+    </BaseButton>
   </div>
 </template>
 

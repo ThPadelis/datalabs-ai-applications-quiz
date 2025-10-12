@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import BaseButton from "@/components/BaseButton.vue";
 
 const props = defineProps({
   assessment: {
@@ -64,25 +65,28 @@ const formattedTime = computed(() => {
 <template>
   <div>
     <div class="mb-6">
-      <button
+      <BaseButton
+        variant="ghost"
+        size="sm"
         @click="goToDashboard"
-        class="flex items-center text-gray-600 hover:text-gray-900 mb-4"
       >
-        <svg
-          class="w-5 h-5 mr-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+        <template #icon-left>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </template>
         Επιστροφή στο Dashboard
-      </button>
+      </BaseButton>
 
       <h2 class="text-2xl font-bold text-gray-900 mb-2">
         Ολοκλήρωση Αξιολόγησης
@@ -273,12 +277,13 @@ const formattedTime = computed(() => {
     </div>
 
     <div class="mt-8 flex justify-center">
-      <button
+      <BaseButton
+        variant="primary"
+        size="lg"
         @click="goToDashboard"
-        class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
       >
         Επιστροφή στο Dashboard
-      </button>
+      </BaseButton>
     </div>
   </div>
 </template>

@@ -10,10 +10,10 @@ const { toggleSidebar } = useSidebar();
   >
     <button
       @click="toggleSidebar"
-      class="lg:hidden mr-4 p-2 rounded-md hover:bg-gray-100 hover:cursor-pointer"
+      class="lg:hidden mr-4 p-2 rounded-md hover:bg-gray-100 transition-colors"
     >
       <svg
-        class="w-6 h-6"
+        class="w-6 h-6 text-gray-700"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -26,8 +26,8 @@ const { toggleSidebar } = useSidebar();
         />
       </svg>
     </button>
-    <router-link to="/" class="text-xl font-semibold"
-      >Datalabs AI Applications</router-link
-    >
+    <router-link to="/" class="text-xl font-semibold">
+      Datalabs AI Applications
+    </router-link>
   </header>
 </template>

@@ -1,4 +1,6 @@
 <script setup>
+import BaseButton from "@/components/BaseButton.vue";
+
 const props = defineProps({
   unansweredQuestions: {
     type: Array,
@@ -72,18 +74,20 @@ const reviewQuestions = () => {
       </div>
 
       <div class="flex gap-3 mt-6">
-        <button
+        <BaseButton
+          variant="primary"
+          class="flex-1"
           @click="reviewQuestions"
-          class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
         >
           Επιστροφή
-        </button>
-        <button
+        </BaseButton>
+        <BaseButton
+          variant="secondary"
+          class="flex-1"
           @click="closeModal"
-          class="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 font-medium transition-colors"
         >
           Υποβολή Όπως Έχει
-        </button>
+        </BaseButton>
       </div>
     </div>
   </div>

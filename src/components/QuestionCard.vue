@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import BaseButton from "@/components/BaseButton.vue";
 
 const props = defineProps({
   question: {
@@ -36,25 +37,28 @@ const toggleExplanation = () => {
         <span class="text-sm font-medium text-gray-500">
           Ερώτηση {{ questionNumber }}
         </span>
-        <button
+        <BaseButton
+          variant="ghost"
+          size="sm"
           @click="toggleExplanation"
-          class="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center"
         >
-          <svg
-            class="w-4 h-4 mr-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <template #icon-left>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </template>
           {{ showExplanation ? "Απόκρυψη" : "Εμφάνιση" }} Επεξήγησης
-        </button>
+        </BaseButton>
       </div>
 
       <h3 class="text-lg font-semibold text-gray-900 leading-relaxed">

@@ -1,4 +1,6 @@
 <script setup>
+import BaseButton from "@/components/BaseButton.vue";
+
 const emit = defineEmits(["close", "confirm"]);
 
 const closeModal = () => {
@@ -55,18 +57,20 @@ const confirmLeave = () => {
       </div>
 
       <div class="flex gap-3 mt-6">
-        <button
+        <BaseButton
+          variant="primary"
+          class="flex-1"
           @click="closeModal"
-          class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
         >
           Συνέχεια Αξιολόγησης
-        </button>
-        <button
+        </BaseButton>
+        <BaseButton
+          variant="danger"
+          class="flex-1"
           @click="confirmLeave"
-          class="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 font-medium transition-colors"
         >
           Εγκατάλειψη
-        </button>
+        </BaseButton>
       </div>
     </div>
   </div>
