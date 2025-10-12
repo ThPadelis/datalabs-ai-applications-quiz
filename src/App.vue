@@ -6,7 +6,7 @@ import AppFooter from "@/components/AppFooter.vue";
 </script>
 
 <template>
-  <div class="h-screen flex flex-col overflow-hidden">
+  <div class="h-[100dvh] flex flex-col overflow-hidden">
     <AppTopBar />
 
     <div class="flex flex-1 relative overflow-hidden">
