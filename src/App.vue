@@ -3,19 +3,18 @@ import AppTopBar from "@/components/AppTopBar.vue";
 import AppSidebar from "@/components/AppSidebar.vue";
 import AppOverlay from "@/components/AppOverlay.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import OfflineIndicator from "@/components/OfflineIndicator.vue";
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="h-screen flex flex-col overflow-hidden">
     <AppTopBar />
 
-    <div class="flex flex-1 relative">
+    <div class="flex flex-1 relative overflow-hidden">
       <AppSidebar />
       <AppOverlay />
 
-      <main class="flex-1 flex flex-col bg-gray-100 overflow-auto">
-        <div class="flex-1 p-6">
+      <main class="flex-1 flex flex-col bg-gray-100 overflow-y-auto">
+        <div class="flex-1 p-6 overflow-y-auto">
           <div class="max-w-7xl mx-auto">
             <router-view />
           </div>
@@ -24,7 +23,5 @@ import OfflineIndicator from "@/components/OfflineIndicator.vue";
         <AppFooter />
       </main>
     </div>
-
-    <OfflineIndicator />
   </div>
 </template>

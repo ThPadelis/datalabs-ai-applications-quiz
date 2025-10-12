@@ -1,5 +1,6 @@
 <script setup>
 import { useSidebar } from "@/composables/useSidebar";
+import OfflineIndicator from "@/components/OfflineIndicator.vue";
 
 const { isSidebarOpen, closeSidebar } = useSidebar();
 </script>
@@ -7,11 +8,12 @@ const { isSidebarOpen, closeSidebar } = useSidebar();
 <template>
   <aside
     :class="[
-      'fixed lg:static inset-y-0 left-0 top-16 z-20 w-64 bg-gray-50 border-r border-gray-200 transform transition-transform duration-300',
+      'fixed lg:static inset-y-0 left-0 top-16 z-20 w-64 bg-gray-50 border-r border-gray-200 transform transition-transform duration-300 flex flex-col',
       isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
     ]"
+    style="height: calc(100vh - 4rem);"
   >
-    <nav class="p-4 space-y-2">
+    <nav class="p-4 space-y-2 flex-1 overflow-y-auto">
       <router-link
         to="/"
         @click="closeSidebar"
@@ -29,6 +31,8 @@ const { isSidebarOpen, closeSidebar } = useSidebar();
         Πίνακας Βαθμολογίας
       </router-link>
     </nav>
+
+    <OfflineIndicator />
   </aside>
 </template>
 

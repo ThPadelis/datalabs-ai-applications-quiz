@@ -15,11 +15,13 @@ export default defineConfig({
       manifest: {
         name: "Datalabs AI Applications in Organizations & Businesses",
         short_name: "Datalabs AI Quiz",
-        description: "AI Applications in Organizations and Businesses - Assessment Quiz",
+        description:
+          "AI Applications in Organizations and Businesses - Assessment Quiz",
         theme_color: "#2563eb",
         background_color: "#ffffff",
         display: "standalone",
         start_url: "./",
+        scope: "./",
         icons: [
           {
             src: "/vite.svg",
@@ -29,6 +31,8 @@ export default defineConfig({
           },
         ],
       },
+      scope: "/",
+      base: "/",
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,json}"],
         runtimeCaching: [
@@ -50,7 +54,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: process.env.GITHUB_ACTIONS ? "/datalabs-ai-applications-quiz/" : "/",
+  base: "/datalabs-ai-applications-quiz/",
   build: {
     outDir: "dist",
   },

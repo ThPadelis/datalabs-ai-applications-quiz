@@ -26,7 +26,8 @@ const { toggleSidebar } = useSidebar();
         />
       </svg>
     </button>
-      <h1 class="text-xl font-semibold">Datalabs AI Applications</h1>
+    <router-link to="/" class="text-xl font-semibold"
+      >Datalabs AI Applications</router-link
+    >
   </header>
 </template>
-
