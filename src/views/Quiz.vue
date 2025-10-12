@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import QuestionCard from "@/components/QuestionCard.vue";
 import QuizResults from "@/components/QuizResults.vue";
 import UnansweredQuestionsModal from "@/components/UnansweredQuestionsModal.vue";
+import LeaveQuizModal from "@/components/LeaveQuizModal.vue";
 import { useIndexedDB } from "@/composables/useIndexedDB";
 import quizData from "@/assets/data/voucher_ai_quizzes.json";
 
@@ -15,6 +16,7 @@ const { saveAttempt } = useIndexedDB();
 const startTime = ref(Date.now());
 const elapsedSeconds = ref(0);
 let timerInterval = null;
+const showLeaveModal = ref(false);
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -69,16 +71,24 @@ const formattedTime = computed(() => {
 
 const selectAnswer = (answerIndex) => {
   answers.value[currentQuestion.value.id] = answerIndex;
+  
+  setTimeout(() => {
+    nextQuestion();
+  }, 300);
 };
 
 const nextQuestion = () => {
-  if (!isLastQuestion.value) {
+  if (isLastQuestion.value) {
+    currentQuestionIndex.value = 0;
+  } else {
     currentQuestionIndex.value++;
   }
 };
 
 const previousQuestion = () => {
-  if (!isFirstQuestion.value) {
+  if (isFirstQuestion.value) {
+    currentQuestionIndex.value = assessment.value.questions.length - 1;
+  } else {
     currentQuestionIndex.value--;
   }
 };
@@ -142,11 +152,20 @@ const reviewQuestions = () => {
   }
 };
 
-const goBack = () => {
+const attemptGoBack = () => {
+  showLeaveModal.value = true;
+};
+
+const confirmLeave = () => {
   if (timerInterval) {
     clearInterval(timerInterval);
   }
+  showLeaveModal.value = false;
   router.push("/");
+};
+
+const closeLeaveModal = () => {
+  showLeaveModal.value = false;
 };
 
 onMounted(() => {
@@ -175,7 +194,7 @@ onUnmounted(() => {
     <div v-else>
       <div class="mb-6">
         <button
-          @click="goBack"
+          @click="attemptGoBack"
           class="flex items-center text-gray-600 hover:text-gray-900 mb-4"
         >
           <svg
@@ -250,13 +269,7 @@ onUnmounted(() => {
       <div class="flex justify-between items-center mt-6">
         <button
           @click="previousQuestion"
-          :disabled="isFirstQuestion"
-          :class="[
-            'flex items-center px-6 py-3 rounded-lg font-medium transition-all',
-            isFirstQuestion
-              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-              : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600',
-          ]"
+          class="flex items-center px-6 py-3 rounded-lg font-medium transition-all bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600"
         >
           <svg
             class="w-5 h-5 mr-2"
@@ -275,7 +288,13 @@ onUnmounted(() => {
         </button>
 
         <button
-          v-if="!isLastQuestion"
+          @click="attemptFinishQuiz"
+          class="px-6 py-3 rounded-lg font-medium transition-all bg-green-600 text-white hover:bg-green-700"
+        >
+          Ολοκλήρωση Αξιολόγησης
+        </button>
+
+        <button
           @click="nextQuestion"
           class="flex items-center px-6 py-3 rounded-lg font-medium transition-all bg-blue-600 text-white hover:bg-blue-700"
         >
@@ -294,27 +313,6 @@ onUnmounted(() => {
             />
           </svg>
         </button>
-
-        <button
-          v-else
-          @click="attemptFinishQuiz"
-          class="flex items-center px-6 py-3 rounded-lg font-medium transition-all bg-green-600 text-white hover:bg-green-700"
-        >
-          Ολοκλήρωση
-          <svg
-            class="w-5 h-5 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </button>
       </div>
     </div>
 
@@ -324,12 +322,18 @@ onUnmounted(() => {
       @close="closeModal"
       @review="reviewQuestions"
     />
+
+    <LeaveQuizModal
+      v-if="showLeaveModal"
+      @close="closeLeaveModal"
+      @confirm="confirmLeave"
+    />
   </div>
 
   <div v-else class="text-center py-12">
     <p class="text-gray-500">Η αξιολόγηση δεν βρέθηκε.</p>
     <button
-      @click="goBack"
+      @click="confirmLeave"
       class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
     >
       Επιστροφή στο Dashboard
