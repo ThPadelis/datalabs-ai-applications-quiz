@@ -19,26 +19,36 @@ export default defineConfig({
           "AI Applications in Organizations and Businesses - Assessment Quiz",
         theme_color: "#2563eb",
         background_color: "#ffffff",
-        display: "minimal-ui",
+        display: "standalone",
         start_url: "./",
         scope: "./",
         icons: [
           {
-            src: "/datalabs-ai-applications-quiz/web-app-manifest-192x192.png",
+            src: "web-app-manifest-192x192.png",
             sizes: "192x192",
             type: "image/png",
             purpose: "maskable",
           },
           {
-            src: "/datalabs-ai-applications-quiz/web-app-manifest-512x512.png",
+            src: "web-app-manifest-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
           },
+          {
+            src: "apple-touch-icon.png",
+            sizes: "180x180",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "favicon.svg",
+            sizes: "any",
+            type: "image/svg+xml",
+            purpose: "any",
+          },
         ],
       },
-      scope: "/",
-      base: "/",
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,json}"],
         runtimeCaching: [
@@ -60,7 +70,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/datalabs-ai-applications-quiz/",
+  base: process.env.GITHUB_ACTIONS ? "/datalabs-ai-applications-quiz/" : "/",
   build: {
     outDir: "dist",
   },
