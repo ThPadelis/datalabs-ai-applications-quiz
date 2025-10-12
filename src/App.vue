@@ -3,6 +3,7 @@ import AppTopBar from "@/components/AppTopBar.vue";
 import AppSidebar from "@/components/AppSidebar.vue";
 import AppOverlay from "@/components/AppOverlay.vue";
 import AppFooter from "@/components/AppFooter.vue";
+import UpdateNotification from "@/components/UpdateNotification.vue";
 </script>
 
 <template>
@@ -23,5 +24,7 @@ import AppFooter from "@/components/AppFooter.vue";
         <AppFooter />
       </main>
     </div>
+
+    <UpdateNotification />
   </div>
 </template>
