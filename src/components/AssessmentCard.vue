@@ -14,12 +14,14 @@ const difficultyColors = {
   easy: "bg-green-100 text-green-800",
   medium: "bg-yellow-100 text-yellow-800",
   hard: "bg-red-100 text-red-800",
+  mixed: "bg-purple-100 text-purple-800",
 };
 
 const difficultyLabels = {
   easy: "Εύκολο",
   medium: "Μέτριο",
   hard: "Δύσκολο",
+  mixed: "Μικτό",
 };
 
 const goToQuiz = () => {

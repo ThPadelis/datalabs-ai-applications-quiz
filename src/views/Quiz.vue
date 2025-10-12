@@ -7,7 +7,7 @@ import UnansweredQuestionsModal from "@/components/UnansweredQuestionsModal.vue"
 import LeaveQuizModal from "@/components/LeaveQuizModal.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import { useIndexedDB } from "@/composables/useIndexedDB";
-import quizData from "@/assets/data/voucher_ai_quizzes.json";
+import { getAssessmentById } from "@/data";
 
 const route = useRoute();
 const router = useRouter();
@@ -28,7 +28,7 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const originalAssessment = quizData.assessments.find((a) => a.id === quizId) || null;
+const originalAssessment = getAssessmentById(quizId);
 const assessment = ref(
   originalAssessment
     ? {

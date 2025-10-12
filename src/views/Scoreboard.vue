@@ -2,7 +2,7 @@
 import { ref, computed, onMounted } from "vue";
 import { useIndexedDB } from "@/composables/useIndexedDB";
 import BaseButton from "@/components/BaseButton.vue";
-import quizData from "@/assets/data/voucher_ai_quizzes.json";
+import { assessments as allAssessments } from "@/data";
 
 const { getAllAttempts } = useIndexedDB();
 
@@ -14,7 +14,7 @@ const minScore = ref(0);
 const maxScore = ref(100);
 
 const assessments = computed(() => {
-  return [{ id: "all", title: "Όλες οι Αξιολογήσεις" }, ...quizData.assessments];
+  return [{ id: "all", title: "Όλες οι Αξιολογήσεις" }, ...allAssessments];
 });
 
 const filteredAttempts = computed(() => {

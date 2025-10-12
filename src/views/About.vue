@@ -102,7 +102,8 @@ const goToDashboard = () => {
               <div>
                 <h3 class="font-semibold text-gray-900">60 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600">
-                  6 αξιολογήσεις με 10 ερωτήσεις η καθεμία
+                  6 αξιολογήσεις, συμπεριλαμβανομένης μίας μικτής με τυχαίες
+                  ερωτήσεις
                 </p>
               </div>
             </div>
@@ -372,6 +373,14 @@ const goToDashboard = () => {
                 Αξιολόγηση 6 - Ηθική & Δεοντολογία στην ΤΝ
               </h3>
               <p class="text-sm text-gray-600">Επίπεδο: Δύσκολο</p>
+            </div>
+            <div class="border-l-4 border-purple-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900">
+                Μικτή Αξιολόγηση
+              </h3>
+              <p class="text-sm text-gray-600">
+                Επίπεδο: Μικτό · 10 τυχαίες ερωτήσεις από όλες τις ενότητες
+              </p>
             </div>
           </div>
         </section>

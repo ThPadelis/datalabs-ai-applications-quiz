@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import AssessmentCard from "@/components/AssessmentCard.vue";
-import quizData from "@/assets/data/voucher_ai_quizzes.json";
+import { assessments as allAssessments } from "@/data";
 
-const assessments = ref(quizData.assessments);
+const assessments = ref(allAssessments);
 </script>
 
 <template>
