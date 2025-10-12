@@ -11,6 +11,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  timeSpent: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const router = useRouter();
@@ -49,6 +53,12 @@ const isCorrect = (questionId, answerIndex) => {
   const question = props.assessment.questions.find((q) => q.id === questionId);
   return answerIndex === question.correctIndex;
 };
+
+const formattedTime = computed(() => {
+  const minutes = Math.floor(props.timeSpent / 60);
+  const seconds = props.timeSpent % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+});
 </script>
 
 <template>
@@ -130,6 +140,22 @@ const isCorrect = (questionId, answerIndex) => {
       </h3>
       <p class="text-lg text-gray-700 mb-1">
         Σωστές Απαντήσεις: {{ score }} / {{ assessment.questions.length }}
+      </p>
+      <p class="text-md text-gray-600 mb-2 flex items-center justify-center gap-2">
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        Χρόνος: {{ formattedTime }}
       </p>
       <p v-if="percentage >= 80" class="text-green-700 font-medium">
         Εξαιρετική Επίδοση!

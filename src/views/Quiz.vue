@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import QuestionCard from "@/components/QuestionCard.vue";
 import QuizResults from "@/components/QuizResults.vue";
@@ -11,6 +11,10 @@ const route = useRoute();
 const router = useRouter();
 const quizId = parseInt(route.params.id);
 const { saveAttempt } = useIndexedDB();
+
+const startTime = ref(Date.now());
+const elapsedSeconds = ref(0);
+let timerInterval = null;
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -57,6 +61,12 @@ const unansweredQuestions = computed(() => {
     .map((q) => q.id);
 });
 
+const formattedTime = computed(() => {
+  const minutes = Math.floor(elapsedSeconds.value / 60);
+  const seconds = elapsedSeconds.value % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+});
+
 const selectAnswer = (answerIndex) => {
   answers.value[currentQuestion.value.id] = answerIndex;
 };
@@ -82,6 +92,11 @@ const attemptFinishQuiz = () => {
 };
 
 const finishQuiz = async () => {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+
   let correctAnswers = 0;
   assessment.value.questions.forEach((question) => {
     if (answers.value[question.id] === question.correctIndex) {
@@ -99,6 +114,7 @@ const finishQuiz = async () => {
       score: correctAnswers,
       totalQuestions: totalQuestions,
       percentage: percentage,
+      timeSpent: elapsedSeconds.value,
     });
   } catch (error) {
     console.error("Failed to save attempt:", error);
@@ -127,8 +143,24 @@ const reviewQuestions = () => {
 };
 
 const goBack = () => {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
   router.push("/");
 };
+
+onMounted(() => {
+  startTime.value = Date.now();
+  timerInterval = setInterval(() => {
+    elapsedSeconds.value = Math.floor((Date.now() - startTime.value) / 1000);
+  }, 1000);
+});
+
+onUnmounted(() => {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+});
 </script>
 
 <template>
@@ -137,6 +169,7 @@ const goBack = () => {
       v-if="isCompleted"
       :assessment="assessment"
       :answers="answers"
+      :time-spent="elapsedSeconds"
     />
 
     <div v-else>
@@ -168,23 +201,41 @@ const goBack = () => {
           <p class="text-gray-600 text-sm mt-1">{{ assessment.description }}</p>
         </div>
 
-        <div class="mb-2">
-          <div
-            class="flex justify-between items-center text-sm text-gray-600 mb-2"
-          >
-            <span>
-              Πρόοδος: {{ currentQuestionIndex + 1 }} /
-              {{ assessment.questions.length }}
+      <div class="mb-2">
+        <div
+          class="flex justify-between items-center text-sm text-gray-600 mb-2"
+        >
+          <span>
+            Πρόοδος: {{ currentQuestionIndex + 1 }} /
+            {{ assessment.questions.length }}
+          </span>
+          <div class="flex items-center gap-4">
+            <span class="flex items-center gap-1">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              {{ formattedTime }}
             </span>
             <span>{{ Math.round(progress) }}%</span>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-2">
-            <div
-              class="bg-blue-600 h-2 rounded-full transition-all duration-300"
-              :style="{ width: progress + '%' }"
-            ></div>
-          </div>
         </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div
+            class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+            :style="{ width: progress + '%' }"
+          ></div>
+        </div>
+      </div>
       </div>
 
     <QuestionCard

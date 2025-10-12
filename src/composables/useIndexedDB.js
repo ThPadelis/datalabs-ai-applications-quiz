@@ -52,6 +52,7 @@ export const useIndexedDB = () => {
         score: attemptData.score,
         totalQuestions: attemptData.totalQuestions,
         percentage: attemptData.percentage,
+        timeSpent: attemptData.timeSpent || 0,
         completedAt: new Date().toISOString(),
       };
 

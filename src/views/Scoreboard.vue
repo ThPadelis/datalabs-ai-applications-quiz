@@ -101,6 +101,13 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
+const formatTime = (seconds) => {
+  if (!seconds) return "-";
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${minutes}:${secs.toString().padStart(2, "0")}`;
+};
+
 const getScoreColor = (percentage) => {
   if (percentage >= 80) return "text-green-600 font-semibold";
   if (percentage >= 60) return "text-yellow-600 font-semibold";
@@ -112,6 +119,7 @@ const exportToCSV = () => {
     "Αξιολόγηση",
     "Βαθμολογία",
     "Ποσοστό (%)",
+    "Χρόνος",
     "Ημερομηνία Ολοκλήρωσης",
   ];
 
@@ -119,6 +127,7 @@ const exportToCSV = () => {
     attempt.assessmentTitle,
     `${attempt.score}/${attempt.totalQuestions}`,
     attempt.percentage,
+    formatTime(attempt.timeSpent),
     formatDate(attempt.completedAt),
   ]);
 
@@ -145,6 +154,7 @@ const exportToExcel = () => {
     "Αξιολόγηση",
     "Βαθμολογία",
     "Ποσοστό (%)",
+    "Χρόνος",
     "Ημερομηνία Ολοκλήρωσης",
   ];
 
@@ -152,6 +162,7 @@ const exportToExcel = () => {
     attempt.assessmentTitle,
     `${attempt.score}/${attempt.totalQuestions}`,
     attempt.percentage,
+    formatTime(attempt.timeSpent),
     formatDate(attempt.completedAt),
   ]);
 
@@ -389,6 +400,11 @@ onMounted(() => {
               <th
                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
+                Χρόνος
+              </th>
+              <th
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Ημερομηνία Ολοκλήρωσης
               </th>
             </tr>
@@ -413,6 +429,9 @@ onMounted(() => {
                 :class="getScoreColor(attempt.percentage)"
               >
                 {{ attempt.percentage }}%
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                {{ formatTime(attempt.timeSpent) }}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {{ formatDate(attempt.completedAt) }}
