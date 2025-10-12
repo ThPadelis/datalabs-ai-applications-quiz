@@ -10,6 +10,10 @@ const props = defineProps({
     type: Number,
     default: null,
   },
+  questionNumber: {
+    type: Number,
+    required: true,
+  },
 });
 
 const emit = defineEmits(["select-answer"]);
@@ -30,7 +34,7 @@ const toggleExplanation = () => {
     <div class="mb-6">
       <div class="flex items-start justify-between mb-4">
         <span class="text-sm font-medium text-gray-500">
-          Ερώτηση {{ question.id }}
+          Ερώτηση {{ questionNumber }}
         </span>
         <button
           @click="toggleExplanation"

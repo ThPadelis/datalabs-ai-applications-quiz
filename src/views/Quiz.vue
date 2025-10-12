@@ -12,9 +12,25 @@ const router = useRouter();
 const quizId = parseInt(route.params.id);
 const { saveAttempt } = useIndexedDB();
 
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const originalAssessment = quizData.assessments.find((a) => a.id === quizId) || null;
 const assessment = ref(
-  quizData.assessments.find((a) => a.id === quizId) || null
+  originalAssessment
+    ? {
+        ...originalAssessment,
+        questions: shuffleArray(originalAssessment.questions),
+      }
+    : null
 );
+
 const currentQuestionIndex = ref(0);
 const answers = ref({});
 const isCompleted = ref(false);
@@ -171,12 +187,14 @@ const goBack = () => {
         </div>
       </div>
 
-      <QuestionCard
-        v-if="currentQuestion"
-        :question="currentQuestion"
-        :selected-answer="answers[currentQuestion.id]"
-        @select-answer="selectAnswer"
-      />
+    <QuestionCard
+      v-if="currentQuestion"
+      :key="currentQuestionIndex"
+      :question="currentQuestion"
+      :question-number="currentQuestionIndex + 1"
+      :selected-answer="answers[currentQuestion.id]"
+      @select-answer="selectAnswer"
+    />
 
       <div class="flex justify-between items-center mt-6">
         <button
