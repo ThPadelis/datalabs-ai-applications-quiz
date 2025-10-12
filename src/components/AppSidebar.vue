@@ -30,6 +30,14 @@ const { isSidebarOpen, closeSidebar } = useSidebar();
       >
         Πίνακας Βαθμολογίας
       </router-link>
+      <router-link
+        to="/about"
+        @click="closeSidebar"
+        class="block px-4 py-2 rounded-md hover:bg-gray-100 text-gray-700"
+        active-class="bg-blue-50 text-blue-700 font-medium"
+      >
+        Σχετικά
+      </router-link>
     </nav>
 
     <OfflineIndicator />
