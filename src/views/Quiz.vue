@@ -270,8 +270,12 @@ onUnmounted(() => {
       @select-answer="selectAnswer"
     />
 
-      <div class="flex justify-between items-center mt-6">
-        <BaseButton variant="secondary" @click="previousQuestion">
+      <div class="flex flex-wrap gap-4 mt-6">
+        <BaseButton
+          variant="secondary"
+          class="flex-1 min-w-[120px]"
+          @click="previousQuestion"
+        >
           <template #icon-left>
             <svg
               class="w-5 h-5"
@@ -290,11 +294,19 @@ onUnmounted(() => {
           Προηγούμενη
         </BaseButton>
 
-        <BaseButton variant="success" @click="attemptFinishQuiz">
+        <BaseButton
+          variant="success"
+          class="flex-1 min-w-[200px]"
+          @click="attemptFinishQuiz"
+        >
           Ολοκλήρωση Αξιολόγησης
         </BaseButton>
 
-        <BaseButton variant="primary" @click="nextQuestion">
+        <BaseButton
+          variant="primary"
+          class="flex-1 min-w-[120px]"
+          @click="nextQuestion"
+        >
           Επόμενη
           <template #icon-right>
             <svg
