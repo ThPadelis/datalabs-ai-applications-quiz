@@ -1,0 +1,24 @@
+import { createWebHistory, createRouter } from "vue-router";
+
+const routes = [
+  {
+    path: "/",
+    name: "Dashboard",
+    component: () => import("@/views/Dashboard.vue"),
+  },
+  {
+    path: "/quiz/:id",
+    name: "Quiz",
+    component: () => import("@/views/Quiz.vue"),
+  },
+  {
+    path: "/scoreboard",
+    name: "Scoreboard",
+    component: () => import("@/views/Scoreboard.vue"),
+  },
+];
+
+export const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
