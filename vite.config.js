@@ -19,7 +19,7 @@ export default defineConfig({
         theme_color: "#2563eb",
         background_color: "#ffffff",
         display: "standalone",
-        start_url: "/",
+        start_url: "./",
         icons: [
           {
             src: "/vite.svg",
@@ -50,7 +50,7 @@ export default defineConfig({
       },
     }),
   ],
-  // base: "/datalabs-voucher/",
+  base: process.env.GITHUB_ACTIONS ? "/datalabs-ai-applications-quiz/" : "/",
   build: {
     outDir: "dist",
   },

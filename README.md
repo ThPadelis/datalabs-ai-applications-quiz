@@ -288,6 +288,33 @@ The application uses a combination of technologies to work completely offline:
 - **Subsequent Loads**: < 1 second (cached)
 - **Offline Load**: Instant (fully cached)
 
+## 🚀 Deployment
+
+### GitHub Pages
+
+The application is automatically deployed to GitHub Pages using GitHub Actions.
+
+**Setup:**
+
+1. Push your code to GitHub
+2. Go to repository Settings → Pages
+3. Source: Select "GitHub Actions"
+4. The workflow will automatically deploy on every push to `main`/`master`
+
+**Manual Deployment:**
+- Go to Actions tab → Deploy to GitHub Pages → Run workflow
+
+**Live URL:** `https://[username].github.io/datalabs-voucher/`
+
+### CI/CD Pipeline
+
+The GitHub Actions workflow:
+- ✅ Runs on every push to main/master
+- ✅ Installs dependencies with pnpm
+- ✅ Builds the production bundle
+- ✅ Deploys to GitHub Pages
+- ✅ Includes PWA service worker
+
 ## 🤝 Contributing
 
 This is a private project. For any questions or suggestions, please contact the project owner.
