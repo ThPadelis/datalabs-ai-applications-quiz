@@ -1,8 +1,10 @@
 <script setup>
 import BaseButton from "@/components/BaseButton.vue";
 import { useRouter } from "vue-router";
+import { useAppInfo } from "@/composables/useAppInfo";
 
 const router = useRouter();
+const { version, buildDate, framework, status } = useAppInfo();
 
 const goToDashboard = () => {
   router.push("/");
@@ -391,19 +393,19 @@ const goToDashboard = () => {
             <div class="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Έκδοση Εφαρμογής:</p>
-                <p class="font-semibold text-gray-900 dark:text-white">1.0.0</p>
+                <p class="font-semibold text-gray-900 dark:text-white">{{ version }}</p>
               </div>
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Τελευταία Ενημέρωση:</p>
-                <p class="font-semibold text-gray-900 dark:text-white">Ιανουάριος 2025</p>
+                <p class="font-semibold text-gray-900 dark:text-white">{{ buildDate }}</p>
               </div>
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Framework:</p>
-                <p class="font-semibold text-gray-900 dark:text-white">Vue 3</p>
+                <p class="font-semibold text-gray-900 dark:text-white">{{ framework }}</p>
               </div>
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Κατάσταση:</p>
-                <p class="font-semibold text-green-600 dark:text-green-400">Ενεργή</p>
+                <p class="font-semibold text-green-600 dark:text-green-400">{{ status }}</p>
               </div>
             </div>
           </div>

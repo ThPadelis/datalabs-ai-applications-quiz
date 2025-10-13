@@ -4,8 +4,20 @@ import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 
+// Get current date for build info
+const buildDate = new Date().toLocaleDateString("el-GR", {
+  month: "long",
+  year: "numeric",
+});
+
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    VITE_BUILD_DATE: JSON.stringify(buildDate),
+    VITE_GITHUB_OWNER: JSON.stringify(process.env.VITE_GITHUB_OWNER),
+    VITE_GITHUB_REPO: JSON.stringify(process.env.VITE_GITHUB_REPO),
+    VITE_GITHUB_TOKEN: JSON.stringify(process.env.VITE_GITHUB_TOKEN),
+  },
   plugins: [
     vue(),
     tailwindcss(),
