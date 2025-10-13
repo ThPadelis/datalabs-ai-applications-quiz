@@ -36,12 +36,12 @@ const emit = defineEmits(["click"]);
 
 const variantClasses = computed(() => {
   const variants = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 border-blue-600",
+    primary: "bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 dark:hover:bg-blue-600 border-blue-600 dark:border-blue-500",
     secondary:
-      "bg-white text-gray-700 hover:bg-gray-50 border-gray-300 hover:border-blue-500",
-    success: "bg-green-600 text-white hover:bg-green-700 border-green-600",
-    danger: "bg-red-600 text-white hover:bg-red-700 border-red-600",
-    ghost: "bg-transparent text-gray-600 hover:text-gray-900 border-transparent",
+      "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 border-gray-300 dark:border-gray-600 hover:border-blue-500",
+    success: "bg-green-600 dark:bg-green-500 text-white hover:bg-green-700 dark:hover:bg-green-600 border-green-600 dark:border-green-500",
+    danger: "bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 dark:hover:bg-red-600 border-red-600 dark:border-red-500",
+    ghost: "bg-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 border-transparent",
   };
 
   return variants[props.variant];

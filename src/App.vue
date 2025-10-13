@@ -7,14 +7,14 @@ import UpdateNotification from "@/components/UpdateNotification.vue";
 </script>
 
 <template>
-  <div class="h-[100dvh] flex flex-col overflow-hidden">
+  <div class="h-[100dvh] flex flex-col overflow-hidden bg-gray-50 dark:bg-gray-900">
     <AppTopBar />
 
     <div class="flex flex-1 relative overflow-hidden">
       <AppSidebar />
       <AppOverlay />
 
-      <main class="flex-1 flex flex-col bg-gray-100 overflow-y-auto">
+      <main class="flex-1 flex flex-col bg-gray-100 dark:bg-gray-900 overflow-y-auto">
         <div class="flex-1 p-6 overflow-y-auto">
           <div class="max-w-7xl mx-auto">
             <router-view />

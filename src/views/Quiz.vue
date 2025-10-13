@@ -218,15 +218,15 @@ onUnmounted(() => {
         </BaseButton>
 
         <div class="mb-4">
-          <h2 class="text-2xl font-bold text-gray-900">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
             {{ assessment.title }}
           </h2>
-          <p class="text-gray-600 text-sm mt-1">{{ assessment.description }}</p>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ assessment.description }}</p>
         </div>
 
       <div class="mb-2">
         <div
-          class="flex justify-between items-center text-sm text-gray-600 mb-2"
+          class="flex justify-between items-center text-sm text-gray-600 dark:text-gray-400 mb-2"
         >
           <span>
             Πρόοδος: {{ currentQuestionIndex + 1 }} /
@@ -252,9 +252,9 @@ onUnmounted(() => {
             <span>{{ Math.round(progress) }}%</span>
           </div>
         </div>
-        <div class="w-full bg-gray-200 rounded-full h-2">
+        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
           <div
-            class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+            class="bg-blue-600 dark:bg-blue-500 h-2 rounded-full transition-all duration-300"
             :style="{ width: progress + '%' }"
           ></div>
         </div>
@@ -342,7 +342,7 @@ onUnmounted(() => {
   </div>
 
   <div v-else class="text-center py-12">
-    <p class="text-gray-500">Η αξιολόγηση δεν βρέθηκε.</p>
+    <p class="text-gray-500 dark:text-gray-400">Η αξιολόγηση δεν βρέθηκε.</p>
     <BaseButton variant="primary" class="mt-4" @click="confirmLeave">
       Επιστροφή στο Dashboard
     </BaseButton>

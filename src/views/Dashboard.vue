@@ -9,8 +9,8 @@ const assessments = ref(allAssessments);
 <template>
   <div>
     <div class="mb-6">
-      <h2 class="text-2xl font-bold text-gray-900">Dashboard</h2>
-      <p class="text-gray-600 mt-1">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Dashboard</h2>
+      <p class="text-gray-600 dark:text-gray-400 mt-1">
         Επιλέξτε μια αξιολόγηση για να ξεκινήσετε
       </p>
     </div>
@@ -24,7 +24,7 @@ const assessments = ref(allAssessments);
     </div>
 
     <div v-if="assessments.length === 0" class="text-center py-12">
-      <p class="text-gray-500">Φόρτωση αξιολογήσεων...</p>
+      <p class="text-gray-500 dark:text-gray-400">Φόρτωση αξιολογήσεων...</p>
     </div>
   </div>
 </template>

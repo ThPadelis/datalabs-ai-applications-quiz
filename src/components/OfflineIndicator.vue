@@ -29,7 +29,7 @@ onUnmounted(() => {
   >
     <div
       v-if="!isOnline"
-      class="m-4 bg-yellow-500 text-white px-4 py-3 rounded-lg shadow flex items-center gap-2"
+      class="m-4 bg-yellow-500 dark:bg-yellow-600 text-white px-4 py-3 rounded-lg shadow flex items-center gap-2"
     >
       <svg
         class="w-5 h-5 flex-shrink-0"

@@ -32,18 +32,18 @@ const goToDashboard = () => {
       </BaseButton>
     </div>
 
-    <div class="bg-white rounded-lg shadow-lg p-8">
-      <h1 class="text-3xl font-bold text-gray-900 mb-2">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
         Σχετικά με την Εφαρμογή
       </h1>
-      <p class="text-gray-600 mb-8">Datalabs AI Applications Quiz</p>
+      <p class="text-gray-600 dark:text-gray-400 mb-8">Datalabs AI Applications Quiz</p>
 
       <div class="space-y-8">
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Τι είναι αυτή η εφαρμογή;
           </h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Η εφαρμογή <strong>Datalabs AI Applications Quiz</strong> είναι ένα
             διαδραστικό σύστημα αξιολόγησης γνώσεων που δημιουργήθηκε για το
             webinar
@@ -52,7 +52,7 @@ const goToDashboard = () => {
               Επιχειρήσεις"</strong
             >.
           </p>
-          <p class="text-gray-700 leading-relaxed">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
             Πρόκειται για μια πλήρως λειτουργική Progressive Web App (PWA) που
             επιτρέπει στους χρήστες να αξιολογήσουν τις γνώσεις τους στον τομέα
             της Τεχνητής Νοημοσύνης, ακόμα και χωρίς σύνδεση στο διαδίκτυο.
@@ -60,14 +60,14 @@ const goToDashboard = () => {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Σκοπός</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Σκοπός</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Ο κύριος στόχος της εφαρμογής είναι να παρέχει μια σύγχρονη,
             προσβάσιμη και αποτελεσματική μέθοδο αξιολόγησης για τους
             συμμετέχοντες του webinar. Μέσω αυτής της πλατφόρμας, οι χρήστες
             μπορούν να:
           </p>
-          <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
             <li>
               Δοκιμάσουν τις γνώσεις τους σε 6 διαφορετικά θεματικά πεδία της ΤΝ
             </li>
@@ -81,11 +81,11 @@ const goToDashboard = () => {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Χαρακτηριστικά
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">
+            <div class="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
               <svg
                 class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"
                 fill="none"
@@ -100,15 +100,15 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900">60 Ερωτήσεις</h3>
-                <p class="text-sm text-gray-600">
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">60 Ερωτήσεις</h3>
+                <p class="text-sm text-gray-600 dark:text-blue-200">
                   6 αξιολογήσεις, συμπεριλαμβανομένης μίας μικτής με τυχαίες
                   ερωτήσεις
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-3 p-4 bg-green-50 rounded-lg">
+            <div class="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
               <svg
                 class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
                 fill="none"
@@ -123,14 +123,14 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900">Progressive Web App</h3>
-                <p class="text-sm text-gray-600">
+                <h3 class="font-semibold text-gray-900 dark:text-green-100">Progressive Web App</h3>
+                <p class="text-sm text-gray-600 dark:text-green-200">
                   Εγκαθίσταται στη συσκευή σας σαν εφαρμογή
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-3 p-4 bg-purple-50 rounded-lg">
+            <div class="flex items-start gap-3 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
               <svg
                 class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1"
                 fill="none"
@@ -145,14 +145,14 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900">Λειτουργία Offline</h3>
-                <p class="text-sm text-gray-600">
+                <h3 class="font-semibold text-gray-900 dark:text-purple-100">Λειτουργία Offline</h3>
+                <p class="text-sm text-gray-600 dark:text-purple-200">
                   Πλήρης λειτουργικότητα χωρίς διαδίκτυο
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-3 p-4 bg-yellow-50 rounded-lg">
+            <div class="flex items-start gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
               <svg
                 class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1"
                 fill="none"
@@ -167,8 +167,8 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900">Παρακολούθηση Προόδου</h3>
-                <p class="text-sm text-gray-600">
+                <h3 class="font-semibold text-gray-900 dark:text-yellow-100">Παρακολούθηση Προόδου</h3>
+                <p class="text-sm text-gray-600 dark:text-yellow-200">
                   Αποθήκευση ιστορικού και στατιστικών
                 </p>
               </div>
@@ -177,45 +177,45 @@ const goToDashboard = () => {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Τεχνολογίες
           </h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Η εφαρμογή κατασκευάστηκε με σύγχρονες τεχνολογίες web:
           </p>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            <div class="p-3 bg-gray-50 rounded-lg text-center">
-              <p class="font-semibold text-gray-900">Vue 3</p>
-              <p class="text-xs text-gray-600">Frontend Framework</p>
+            <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">Vue 3</p>
+              <p class="text-xs text-gray-600 dark:text-gray-400">Frontend Framework</p>
             </div>
-            <div class="p-3 bg-gray-50 rounded-lg text-center">
-              <p class="font-semibold text-gray-900">Vite</p>
-              <p class="text-xs text-gray-600">Build Tool</p>
+            <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">Vite</p>
+              <p class="text-xs text-gray-600 dark:text-gray-400">Build Tool</p>
             </div>
-            <div class="p-3 bg-gray-50 rounded-lg text-center">
-              <p class="font-semibold text-gray-900">Tailwind CSS v4</p>
-              <p class="text-xs text-gray-600">Styling</p>
+            <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">Tailwind CSS v4</p>
+              <p class="text-xs text-gray-400 dark:text-gray-400">Styling</p>
             </div>
-            <div class="p-3 bg-gray-50 rounded-lg text-center">
-              <p class="font-semibold text-gray-900">PWA</p>
-              <p class="text-xs text-gray-600">Progressive Web App</p>
+            <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">PWA</p>
+              <p class="text-xs text-gray-600 dark:text-gray-400">Progressive Web App</p>
             </div>
-            <div class="p-3 bg-gray-50 rounded-lg text-center">
-              <p class="font-semibold text-gray-900">IndexedDB</p>
-              <p class="text-xs text-gray-600">Local Storage</p>
+            <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">IndexedDB</p>
+              <p class="text-xs text-gray-600 dark:text-gray-400">Local Storage</p>
             </div>
-            <div class="p-3 bg-gray-50 rounded-lg text-center">
-              <p class="font-semibold text-gray-900">Service Worker</p>
-              <p class="text-xs text-gray-600">Offline Support</p>
+            <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">Service Worker</p>
+              <p class="text-xs text-gray-600 dark:text-gray-400">Offline Support</p>
             </div>
           </div>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Ανάπτυξη
           </h2>
-          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0">
                 <div
@@ -225,21 +225,21 @@ const goToDashboard = () => {
                 </div>
               </div>
               <div class="flex-1">
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   Datalabs
                 </h3>
-                <p class="text-gray-700 leading-relaxed mb-3">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
                   Η εφαρμογή αναπτύχθηκε στο πλαίσιο του webinar για τις
                   Εφαρμογές Τεχνητής Νοημοσύνης σε Οργανισμούς και Επιχειρήσεις.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-3">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
                   Δημιουργήθηκε με στόχο να προσφέρει μια
                   <strong>διαδραστική εναλλακτική</strong> στην παραδοσιακή
                   μελέτη μέσω αρχείων PDF. Αντί να διαβάζουν στατικά έγγραφα, οι
                   χρήστες μπορούν τώρα να μαθαίνουν μέσω μιας δραστικής,
                   ενδιαφέρουσας και εκπαιδευτικής εμπειρίας.
                 </p>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Αναπτύχθηκε με σύγχρονες τεχνολογίες web για να παρέχει μια
                   προσβάσιμη, γρήγορη και offline-capable εφαρμογή που βοηθά
                   όποιον θέλει να εμβαθύνει στις γνώσεις του για την Τεχνητή
@@ -251,10 +251,10 @@ const goToDashboard = () => {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Ιδιωτικότητα & Δεδομένα
           </h2>
-          <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+          <div class="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg p-6">
             <div class="flex items-start gap-3 mb-4">
               <svg
                 class="w-6 h-6 text-green-600 flex-shrink-0"
@@ -270,10 +270,10 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 mb-2">
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
                   Τα δεδομένα σας είναι ασφαλή
                 </h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
+                <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
                   <li class="flex items-start gap-2">
                     <svg
                       class="w-5 h-5 text-green-600 flex-shrink-0"
@@ -340,45 +340,45 @@ const goToDashboard = () => {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Θεματικές Ενότητες
           </h2>
           <div class="space-y-3">
             <div class="border-l-4 border-green-500 pl-4 py-2">
-              <h3 class="font-semibold text-gray-900">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Αξιολόγηση 1 - Εισαγωγή στην Τεχνητή Νοημοσύνη
               </h3>
-              <p class="text-sm text-gray-600">Επίπεδο: Εύκολο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Εύκολο</p>
             </div>
             <div class="border-l-4 border-yellow-500 pl-4 py-2">
-              <h3 class="font-semibold text-gray-900">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Αξιολόγηση 2 - Παραγωγική Τεχνητή Νοημοσύνη
               </h3>
-              <p class="text-sm text-gray-600">Επίπεδο: Μέτριο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
             </div>
             <div class="border-l-4 border-yellow-500 pl-4 py-2">
-              <h3 class="font-semibold text-gray-900">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Αξιολόγηση 4 - Επιχειρηματική ΤΝ
               </h3>
-              <p class="text-sm text-gray-600">Επίπεδο: Μέτριο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
             </div>
             <div class="border-l-4 border-red-500 pl-4 py-2">
-              <h3 class="font-semibold text-gray-900">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Αξιολόγηση 5 - Κοινωνία, Οικονομία & Πολιτικές ΤΝ
               </h3>
-              <p class="text-sm text-gray-600">Επίπεδο: Δύσκολο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
             </div>
             <div class="border-l-4 border-red-500 pl-4 py-2">
-              <h3 class="font-semibold text-gray-900">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Αξιολόγηση 6 - Ηθική & Δεοντολογία στην ΤΝ
               </h3>
-              <p class="text-sm text-gray-600">Επίπεδο: Δύσκολο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-2">
-              <h3 class="font-semibold text-gray-900">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Μικτή Αξιολόγηση
               </h3>
-              <p class="text-sm text-gray-600">
+              <p class="text-sm text-gray-600 dark:text-gray-400">
                 Επίπεδο: Μικτό · 10 τυχαίες ερωτήσεις από όλες τις ενότητες
               </p>
             </div>
@@ -386,42 +386,42 @@ const goToDashboard = () => {
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Έκδοση</h2>
-          <div class="bg-gray-50 rounded-lg p-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Έκδοση</h2>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
             <div class="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <p class="text-gray-600">Έκδοση Εφαρμογής:</p>
-                <p class="font-semibold text-gray-900">1.0.0</p>
+                <p class="text-gray-600 dark:text-gray-400">Έκδοση Εφαρμογής:</p>
+                <p class="font-semibold text-gray-900 dark:text-white">1.0.0</p>
               </div>
               <div>
-                <p class="text-gray-600">Τελευταία Ενημέρωση:</p>
-                <p class="font-semibold text-gray-900">Ιανουάριος 2025</p>
+                <p class="text-gray-600 dark:text-gray-400">Τελευταία Ενημέρωση:</p>
+                <p class="font-semibold text-gray-900 dark:text-white">Ιανουάριος 2025</p>
               </div>
               <div>
-                <p class="text-gray-600">Framework:</p>
-                <p class="font-semibold text-gray-900">Vue 3</p>
+                <p class="text-gray-600 dark:text-gray-400">Framework:</p>
+                <p class="font-semibold text-gray-900 dark:text-white">Vue 3</p>
               </div>
               <div>
-                <p class="text-gray-600">Κατάσταση:</p>
-                <p class="font-semibold text-green-600">Ενεργή</p>
+                <p class="text-gray-600 dark:text-gray-400">Κατάσταση:</p>
+                <p class="font-semibold text-green-600 dark:text-green-400">Ενεργή</p>
               </div>
             </div>
           </div>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Επικοινωνία
           </h2>
-          <p class="text-gray-700 leading-relaxed">
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
             Για περισσότερες πληροφορίες σχετικά με το webinar ή την εφαρμογή,
             επικοινωνήστε με την ομάδα του Datalabs.
           </p>
         </section>
       </div>
 
-      <div class="mt-8 pt-6 border-t border-gray-200 text-center">
-        <p class="text-sm text-gray-600">
+      <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
           © 2025
           <a
             href="https://pantelis.theodosiou.me"

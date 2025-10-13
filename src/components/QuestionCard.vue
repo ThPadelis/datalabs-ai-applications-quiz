@@ -31,10 +31,10 @@ const toggleExplanation = () => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-6">
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
     <div class="mb-6">
       <div class="flex items-start justify-between mb-4">
-        <span class="text-sm font-medium text-gray-500">
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
           Ερώτηση {{ questionNumber }}
         </span>
         <BaseButton
@@ -59,7 +59,7 @@ const toggleExplanation = () => {
         </BaseButton>
       </div>
 
-      <h3 class="text-lg font-semibold text-gray-900 leading-relaxed">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white leading-relaxed">
         {{ question.question }}
       </h3>
     </div>
@@ -72,8 +72,8 @@ const toggleExplanation = () => {
         :class="[
           'p-4 rounded-lg border-2 transition-all cursor-pointer',
           selectedAnswer === index
-            ? 'border-blue-500 bg-blue-50'
-            : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50',
+            ? 'border-blue-500 dark:border-blue-400 bg-blue-50 dark:bg-blue-900/30'
+            : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-gray-50 dark:hover:bg-gray-700',
         ]"
       >
         <div class="flex items-center">
@@ -81,8 +81,8 @@ const toggleExplanation = () => {
             :class="[
               'w-5 h-5 rounded-full border-2 flex items-center justify-center mr-3',
               selectedAnswer === index
-                ? 'border-blue-500 bg-blue-500'
-                : 'border-gray-300',
+                ? 'border-blue-500 dark:border-blue-400 bg-blue-500 dark:bg-blue-400'
+                : 'border-gray-300 dark:border-gray-600',
             ]"
           >
             <div
@@ -94,8 +94,8 @@ const toggleExplanation = () => {
             :class="[
               'text-sm',
               selectedAnswer === index
-                ? 'text-gray-900 font-medium'
-                : 'text-gray-700',
+                ? 'text-gray-900 dark:text-white font-medium'
+                : 'text-gray-700 dark:text-gray-300',
             ]"
           >
             {{ option }}
@@ -114,11 +114,11 @@ const toggleExplanation = () => {
     >
       <div
         v-if="showExplanation"
-        class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg"
+        class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg"
       >
         <div class="flex items-start">
           <svg
-            class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0"
+            class="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2 mt-0.5 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -131,9 +131,9 @@ const toggleExplanation = () => {
             />
           </svg>
           <div>
-            <p class="text-sm font-medium text-blue-900 mb-1">Επεξήγηση:</p>
-            <p class="text-sm text-blue-800">{{ question.explanation }}</p>
-            <p class="text-sm text-blue-900 font-medium mt-2">
+            <p class="text-sm font-medium text-blue-900 dark:text-blue-300 mb-1">Επεξήγηση:</p>
+            <p class="text-sm text-blue-800 dark:text-blue-200">{{ question.explanation }}</p>
+            <p class="text-sm text-blue-900 dark:text-blue-300 font-medium mt-2">
               Σωστή Απάντηση: {{ question.options[question.correctIndex] }}
             </p>
           </div>

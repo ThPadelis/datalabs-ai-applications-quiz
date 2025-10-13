@@ -8,7 +8,7 @@ const { isSidebarOpen, closeSidebar } = useSidebar();
 <template>
   <aside
     :class="[
-      'fixed lg:static inset-y-0 left-0 top-16 z-20 w-64 bg-gray-50 border-r border-gray-200 transform transition-transform duration-300 flex flex-col',
+      'fixed lg:static inset-y-0 left-0 top-16 z-20 w-64 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 flex flex-col',
       isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
     ]"
     style="height: calc(100dvh - 4rem);"
@@ -17,24 +17,24 @@ const { isSidebarOpen, closeSidebar } = useSidebar();
       <router-link
         to="/"
         @click="closeSidebar"
-        class="block px-4 py-2 rounded-md hover:bg-gray-100 text-gray-700"
-        active-class="bg-blue-50 text-blue-700 font-medium"
+        class="block px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+        active-class="bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
       >
         Dashboard
       </router-link>
       <router-link
         to="/scoreboard"
         @click="closeSidebar"
-        class="block px-4 py-2 rounded-md hover:bg-gray-100 text-gray-700"
-        active-class="bg-blue-50 text-blue-700 font-medium"
+        class="block px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+        active-class="bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
       >
         Πίνακας Βαθμολογίας
       </router-link>
       <router-link
         to="/about"
         @click="closeSidebar"
-        class="block px-4 py-2 rounded-md hover:bg-gray-100 text-gray-700"
-        active-class="bg-blue-50 text-blue-700 font-medium"
+        class="block px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+        active-class="bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
       >
         Σχετικά
       </router-link>

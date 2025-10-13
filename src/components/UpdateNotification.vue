@@ -20,12 +20,12 @@ const dismissUpdate = () => {
   >
     <div
       v-if="updateAvailable"
-      class="fixed bottom-4 right-4 bg-white rounded-lg shadow-xl border-2 border-blue-500 p-4 max-w-sm z-50"
+      class="fixed bottom-4 right-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl border-2 border-blue-500 dark:border-blue-600 p-4 max-w-sm z-50"
     >
       <div class="flex items-start gap-3">
         <div class="flex-shrink-0">
           <svg
-            class="w-8 h-8 text-blue-600"
+            class="w-8 h-8 text-blue-600 dark:text-blue-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -39,10 +39,10 @@ const dismissUpdate = () => {
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="text-sm font-semibold text-gray-900 mb-1">
+          <h3 class="text-sm font-semibold text-gray-900 dark:text-white mb-1">
             Νέα Έκδοση Διαθέσιμη!
           </h3>
-          <p class="text-sm text-gray-600 mb-3">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
             Υπάρχει μια νέα έκδοση της εφαρμογής. Ενημερώστε για να λάβετε τις
             τελευταίες βελτιώσεις.
           </p>

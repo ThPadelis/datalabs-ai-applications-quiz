@@ -11,10 +11,10 @@ const props = defineProps({
 const router = useRouter();
 
 const difficultyColors = {
-  easy: "bg-green-100 text-green-800",
-  medium: "bg-yellow-100 text-yellow-800",
-  hard: "bg-red-100 text-red-800",
-  mixed: "bg-purple-100 text-purple-800",
+  easy: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300",
+  medium: "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-300",
+  hard: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-300",
+  mixed: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300",
 };
 
 const difficultyLabels = {
@@ -32,10 +32,10 @@ const goToQuiz = () => {
 <template>
   <div
     @click="goToQuiz"
-    class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer p-6 border border-gray-200 hover:border-blue-300"
+    class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
   >
     <div class="flex items-start justify-between mb-3">
-      <h3 class="text-lg font-semibold text-gray-900 flex-1">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex-1">
         {{ assessment.title }}
       </h3>
       <span
@@ -48,12 +48,12 @@ const goToQuiz = () => {
       </span>
     </div>
 
-    <p class="text-gray-600 text-sm mb-4">
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
       {{ assessment.description }}
     </p>
 
     <div class="flex items-center justify-between text-sm">
-      <div class="flex items-center text-gray-500">
+      <div class="flex items-center text-gray-500 dark:text-gray-400">
         <svg
           class="w-5 h-5 mr-1"
           fill="none"
@@ -70,7 +70,7 @@ const goToQuiz = () => {
         <span>{{ assessment.questions.length }} ερωτήσεις</span>
       </div>
 
-      <div class="flex items-center text-blue-600 font-medium">
+      <div class="flex items-center text-blue-600 dark:text-blue-400 font-medium">
         <span class="mr-1">Έναρξη</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

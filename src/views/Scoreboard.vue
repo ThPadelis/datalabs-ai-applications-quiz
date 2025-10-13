@@ -110,9 +110,9 @@ const formatTime = (seconds) => {
 };
 
 const getScoreColor = (percentage) => {
-  if (percentage >= 80) return "text-green-600 font-semibold";
-  if (percentage >= 60) return "text-yellow-600 font-semibold";
-  return "text-red-600 font-semibold";
+  if (percentage >= 80) return "text-green-600 dark:text-green-400 font-semibold";
+  if (percentage >= 60) return "text-yellow-600 dark:text-yellow-400 font-semibold";
+  return "text-red-600 dark:text-red-400 font-semibold";
 };
 
 const exportToCSV = () => {
@@ -207,44 +207,44 @@ onMounted(() => {
 <template>
   <div class="scoreboard-container">
     <div class="mb-6 no-print">
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Πίνακας Βαθμολογίας</h2>
-      <p class="text-gray-600">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Πίνακας Βαθμολογίας</h2>
+      <p class="text-gray-600 dark:text-gray-400">
         Δείτε το ιστορικό των προσπαθειών σας σε όλες τις αξιολογήσεις
       </p>
     </div>
 
     <div v-if="statistics" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 no-print">
-      <div class="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
-        <p class="text-sm text-gray-600 mb-1">Συνολικές Προσπάθειες</p>
-        <p class="text-2xl font-bold text-gray-900">{{ statistics.total }}</p>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-blue-500">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Συνολικές Προσπάθειες</p>
+        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ statistics.total }}</p>
       </div>
-      <div class="bg-white rounded-lg shadow p-4 border-l-4 border-green-500">
-        <p class="text-sm text-gray-600 mb-1">Καλύτερη Βαθμολογία</p>
-        <p class="text-2xl font-bold text-green-600">{{ statistics.bestScore }}%</p>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-green-500">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Καλύτερη Βαθμολογία</p>
+        <p class="text-2xl font-bold text-green-600 dark:text-green-400">{{ statistics.bestScore }}%</p>
       </div>
-      <div class="bg-white rounded-lg shadow p-4 border-l-4 border-yellow-500">
-        <p class="text-sm text-gray-600 mb-1">Μέση Βαθμολογία</p>
-        <p class="text-2xl font-bold text-yellow-600">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-yellow-500">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Μέση Βαθμολογία</p>
+        <p class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">
           {{ statistics.avgScore }}%
         </p>
       </div>
-      <div class="bg-white rounded-lg shadow p-4 border-l-4 border-red-500">
-        <p class="text-sm text-gray-600 mb-1">Χειρότερη Βαθμολογία</p>
-        <p class="text-2xl font-bold text-red-600">{{ statistics.worstScore }}%</p>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-red-500">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Χειρότερη Βαθμολογία</p>
+        <p class="text-2xl font-bold text-red-600 dark:text-red-400">{{ statistics.worstScore }}%</p>
       </div>
     </div>
 
-    <div class="bg-white rounded-lg shadow mb-6 no-print">
-      <div class="p-4 border-b border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Φίλτρα</h3>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-6 no-print">
+      <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Φίλτρα</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Αξιολόγηση
             </label>
             <select
               v-model="selectedQuiz"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option
                 v-for="assessment in assessments"
@@ -257,12 +257,12 @@ onMounted(() => {
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Χρονική Περίοδος
             </label>
             <select
               v-model="selectedDateRange"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="all">Όλες οι Ημερομηνίες</option>
               <option value="today">Σήμερα</option>
@@ -272,7 +272,7 @@ onMounted(() => {
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Ελάχιστο Ποσοστό (%)
             </label>
             <input
@@ -280,12 +280,12 @@ onMounted(() => {
               type="number"
               min="0"
               max="100"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Μέγιστο Ποσοστό (%)
             </label>
             <input
@@ -293,7 +293,7 @@ onMounted(() => {
               type="number"
               min="0"
               max="100"
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
         </div>
@@ -359,67 +359,67 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
       <div v-if="loading" class="p-8 text-center">
-        <p class="text-gray-500">Φόρτωση δεδομένων...</p>
+        <p class="text-gray-500 dark:text-gray-400">Φόρτωση δεδομένων...</p>
       </div>
 
       <div
         v-else-if="filteredAttempts.length === 0"
         class="p-8 text-center"
       >
-        <p class="text-gray-500">Δεν βρέθηκαν προσπάθειες με τα επιλεγμένα φίλτρα.</p>
+        <p class="text-gray-500 dark:text-gray-400">Δεν βρέθηκαν προσπάθειες με τα επιλεγμένα φίλτρα.</p>
       </div>
 
       <div v-else class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <thead class="bg-gray-50 dark:bg-gray-700">
             <tr>
               <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
               >
                 #
               </th>
               <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
               >
                 Αξιολόγηση
               </th>
               <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
               >
                 Βαθμολογία
               </th>
               <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
               >
                 Ποσοστό
               </th>
               <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
               >
                 Χρόνος
               </th>
               <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
               >
                 Ημερομηνία Ολοκλήρωσης
               </th>
             </tr>
           </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
             <tr
               v-for="(attempt, index) in filteredAttempts"
               :key="attempt.id"
-              class="hover:bg-gray-50"
+              class="hover:bg-gray-50 dark:hover:bg-gray-700"
             >
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                 {{ index + 1 }}
               </td>
-              <td class="px-6 py-4 text-sm text-gray-900">
+              <td class="px-6 py-4 text-sm text-gray-900 dark:text-white">
                 {{ attempt.assessmentTitle }}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                 {{ attempt.score }}/{{ attempt.totalQuestions }}
               </td>
               <td
@@ -428,10 +428,10 @@ onMounted(() => {
               >
                 {{ attempt.percentage }}%
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
                 {{ formatTime(attempt.timeSpent) }}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                 {{ formatDate(attempt.completedAt) }}
               </td>
             </tr>
