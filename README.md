@@ -6,7 +6,7 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## 📋 Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 7 different assessments plus 1 mixed assessment with a total of 80 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 7 different assessments plus 1 mixed assessment with a total of 120 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
@@ -14,7 +14,7 @@ The application is designed as a **Progressive Web App (PWA)**, allowing users t
 
 ### 🎯 Assessments
 - **7 Assessments** with different difficulty levels
-- **80 Multiple Choice Questions** (70 + 10 mixed)
+- **120 Multiple Choice Questions** (110 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -166,6 +166,7 @@ datalabs-ai-applications-quiz/
 │   ├── composables/                # Vue composables
 │   │   ├── useAppInfo.js           # App information composable
 │   │   ├── useDarkMode.js          # Dark mode composable
+│   │   ├── useDateFormat.js        # Date formatting composable
 │   │   ├── useIndexedDB.js         # IndexedDB operations
 │   │   ├── useServiceWorker.js     # Service worker composable
 │   │   └── useSidebar.js           # Sidebar state management
@@ -220,7 +221,7 @@ datalabs-ai-applications-quiz/
 10 questions on ethical issues, transparency, responsibility and social impacts of AI.
 
 ### 7. DYPA300: AI & Prompt Engineering Quiz (Full Set) (Medium)
-20 questions on prompt engineering, AI techniques, and advanced AI usage.
+50 questions on prompt engineering, AI techniques, and advanced AI usage.
 
 ### 8. Mixed Assessment (Mixed)
 10 random questions from all assessment modules.

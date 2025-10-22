@@ -102,7 +102,7 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-blue-100">80 Ερωτήσεις</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">120 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600 dark:text-blue-200">
                   7 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
                 </p>
