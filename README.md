@@ -6,7 +6,7 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## 📋 Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 6 different assessments with a total of 60 questions covering topics from basic concepts to advanced ethics and business applications of AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 6 different assessments plus 1 mixed assessment with a total of 70 questions covering topics from basic concepts to advanced ethics and business applications of AI.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
@@ -14,7 +14,7 @@ The application is designed as a **Progressive Web App (PWA)**, allowing users t
 
 ### 🎯 Assessments
 - **6 Assessments** with different difficulty levels
-- **60 Multiple Choice Questions**
+- **70 Multiple Choice Questions** (60 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -145,58 +145,82 @@ Creates an optimized build and runs it at `http://localhost:4173`
 ```
 datalabs-ai-applications-quiz/
 ├── public/                          # Static assets
-│   └── vite.svg                     # App icon
+│   ├── favicon.ico                  # App favicon
+│   ├── favicon.svg                  # SVG favicon
+│   ├── apple-touch-icon.png         # Apple touch icon
+│   └── web-app-manifest-*.png       # PWA manifest icons
 ├── src/
-│   ├── assets/
-│   │   └── data/
-│   │       └── voucher_ai_quizzes.json  # Quiz questions & data
-│   ├── components/
-│   │   ├── AppFooter.vue            # Footer component
-│   │   ├── AppOverlay.vue           # Mobile sidebar overlay
-│   │   ├── AppSidebar.vue           # Navigation sidebar
-│   │   ├── AppTopBar.vue            # Top navigation bar
-│   │   ├── AssessmentCard.vue       # Quiz card on dashboard
-│   │   ├── OfflineIndicator.vue     # Offline status indicator
-│   │   ├── QuestionCard.vue         # Question display component
-│   │   ├── QuizResults.vue          # Results page component
-│   │   └── UnansweredQuestionsModal.vue  # Warning modal
-│   ├── composables/
-│   │   ├── useIndexedDB.js          # IndexedDB operations
-│   │   └── useSidebar.js            # Sidebar state management
+│   ├── components/                  # Vue components
+│   │   ├── AppFooter.vue           # Footer component
+│   │   ├── AppOverlay.vue          # Mobile sidebar overlay
+│   │   ├── AppSidebar.vue          # Navigation sidebar
+│   │   ├── AppTopBar.vue           # Top navigation bar
+│   │   ├── AssessmentCard.vue      # Quiz card on dashboard
+│   │   ├── BaseButton.vue          # Reusable button component
+│   │   ├── LeaveQuizModal.vue      # Leave quiz confirmation modal
+│   │   ├── OfflineIndicator.vue    # Offline status indicator
+│   │   ├── QuestionCard.vue        # Question display component
+│   │   ├── QuizResults.vue         # Results page component
+│   │   ├── UnansweredQuestionsModal.vue  # Warning modal
+│   │   └── UpdateNotification.vue  # PWA update notification
+│   ├── composables/                # Vue composables
+│   │   ├── useAppInfo.js           # App information composable
+│   │   ├── useDarkMode.js          # Dark mode composable
+│   │   ├── useGitHub.js            # GitHub integration composable
+│   │   ├── useIndexedDB.js         # IndexedDB operations
+│   │   ├── useServiceWorker.js     # Service worker composable
+│   │   └── useSidebar.js           # Sidebar state management
+│   ├── data/                       # Application data
+│   │   ├── assessments/            # Assessment definitions
+│   │   │   ├── assessment-1.js     # AI Introduction assessment
+│   │   │   ├── assessment-2.js     # Generative AI assessment
+│   │   │   ├── assessment-4.js     # Business AI assessment
+│   │   │   ├── assessment-5.js     # Basic concepts assessment
+│   │   │   ├── assessment-6.js     # Ethics assessment
+│   │   │   ├── assessment-mixed.js # Mixed assessment generator
+│   │   │   └── index.js            # Assessment exports
+│   │   └── index.js                # Data exports
 │   ├── router/
-│   │   └── index.js                 # Vue Router configuration
-│   ├── views/
-│   │   ├── Dashboard.vue            # Main dashboard
-│   │   ├── Quiz.vue                 # Quiz taking view
-│   │   └── Scoreboard.vue           # Score history & statistics
-│   ├── App.vue                      # Root component
-│   ├── main.js                      # App entry point
-│   └── style.css                    # Global styles + Tailwind
-├── index.html                       # HTML entry point
-├── vite.config.js                   # Vite configuration
-├── package.json                     # Dependencies & scripts
-└── README.md                        # This file
+│   │   └── index.js                # Vue Router configuration
+│   ├── views/                      # Page components
+│   │   ├── About.vue               # About page
+│   │   ├── Dashboard.vue           # Main dashboard
+│   │   ├── IssueReporting.vue      # Issue reporting page
+│   │   ├── Quiz.vue                # Quiz taking view
+│   │   └── Scoreboard.vue          # Score history & statistics
+│   ├── App.vue                     # Root component
+│   ├── main.js                     # App entry point
+│   └── style.css                   # Global styles + Tailwind
+├── .github/workflows/              # GitHub Actions
+│   └── deploy.yml                  # Deployment workflow
+├── index.html                      # HTML entry point
+├── vite.config.js                  # Vite configuration
+├── package.json                    # Dependencies & scripts
+└── README.md                       # This file
 ```
 
 ## 🎯 Assessments
 
-### 1. Introduction to Artificial Intelligence (Easy)
+### 1. DYPA300: Τεχνητή Νοημοσύνη (AI) (Easy)
 10 questions on basic concepts, applications, and challenges of AI.
 
-### 2. Generative Artificial Intelligence (Medium)
-10 questions on GANs, Transformers, and generative AI applications.
+### 2. DYPA300: Παραγωγική Τεχνητή Νοημοσύνη (Generative AI) (Medium)
+10 questions on generative AI technologies, applications, and ethical considerations.
 
-### 3. Business AI (Medium)
-10 questions on using AI in business decisions and management.
+### 3. DYPA300: Πολυτροπικά Μοντέλα και Εργαλεία AI (Medium)
+10 questions on multimodal models, Natural Language Processing, and responsible use of AI tools.
 
-### 4. Society, Economy & AI Policies (Hard)
-10 questions on impacts, policies, and AI initiatives.
+### 4. DYPA300: Επιχειρηματική Εφαρμογή της Τεχνητής Νοημοσύνης (Medium)
+10 questions on using AI in business management, decision-making, and ethical issues.
 
-### 5. Ethics & Deontology in AI (Hard)
-10 questions on ethical issues, bias, and rights.
+### 5. DYPA300: Βασικές Έννοιες και Επιπτώσεις της Τεχνητής Νοημοσύνης (Easy)
+10 questions on understanding basic concepts, applications, impacts and ethical issues of AI.
 
-### 6. Ethics & Deontology in AI (Hard)
-10 questions on advanced ethics topics in AI.
+### 6. DYPA300: Ηθική και Υπεύθυνη Χρήση της Τεχνητής Νοημοσύνης (Medium)
+10 questions on ethical issues, transparency, responsibility and social impacts of AI.
+
+### 7. Mixed Assessment (Mixed)
+10 random questions from all assessment modules.
 
 ## 💡 How It Works
 
@@ -304,7 +328,7 @@ The application is automatically deployed to GitHub Pages using GitHub Actions.
 **Manual Deployment:**
 - Go to Actions tab → Deploy to GitHub Pages → Run workflow
 
-**Live URL:** `https://[username].github.io/datalabs-voucher/`
+**Live URL:** `https://[username].github.io/datalabs-ai-applications-quiz/`
 
 ### CI/CD Pipeline
 

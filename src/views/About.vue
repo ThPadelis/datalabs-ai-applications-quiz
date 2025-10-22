@@ -71,7 +71,7 @@ const goToDashboard = () => {
           </p>
           <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
             <li>
-              Δοκιμάσουν τις γνώσεις τους σε 6 διαφορετικά θεματικά πεδία της ΤΝ
+              Δοκιμάσουν τις γνώσεις τους σε 6 διαφορετικές αξιολογήσεις + 1 μικτή
             </li>
             <li>Λάβουν άμεση ανατροφοδότηση με αναλυτικές επεξηγήσεις</li>
             <li>
@@ -102,10 +102,9 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-blue-100">60 Ερωτήσεις</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">70 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600 dark:text-blue-200">
-                  6 αξιολογήσεις, συμπεριλαμβανομένης μίας μικτής με τυχαίες
-                  ερωτήσεις
+                  6 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
                 </p>
               </div>
             </div>
@@ -223,12 +222,12 @@ const goToDashboard = () => {
                 <div
                   class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold"
                 >
-                  DL
+                  PT
                 </div>
               </div>
               <div class="flex-1">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Datalabs
+                  Pantelis Theodosiou
                 </h3>
                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
                   Η εφαρμογή αναπτύχθηκε στο πλαίσιο του webinar για τις
@@ -348,33 +347,39 @@ const goToDashboard = () => {
           <div class="space-y-3">
             <div class="border-l-4 border-green-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
-                Αξιολόγηση 1 - Εισαγωγή στην Τεχνητή Νοημοσύνη
+                Αξιολόγηση 1 - DYPA300: Τεχνητή Νοημοσύνη (AI)
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Εύκολο</p>
             </div>
             <div class="border-l-4 border-yellow-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
-                Αξιολόγηση 2 - Παραγωγική Τεχνητή Νοημοσύνη
+                Αξιολόγηση 2 - DYPA300: Παραγωγική Τεχνητή Νοημοσύνη (Generative AI)
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
             </div>
             <div class="border-l-4 border-yellow-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
-                Αξιολόγηση 4 - Επιχειρηματική ΤΝ
+                Αξιολόγηση 3 - DYPA300: Πολυτροπικά Μοντέλα και Εργαλεία AI
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
             </div>
-            <div class="border-l-4 border-red-500 pl-4 py-2">
+            <div class="border-l-4 border-yellow-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
-                Αξιολόγηση 5 - Κοινωνία, Οικονομία & Πολιτικές ΤΝ
+                Αξιολόγηση 4 - DYPA300: Επιχειρηματική Εφαρμογή της Τεχνητής Νοημοσύνης
               </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
             </div>
-            <div class="border-l-4 border-red-500 pl-4 py-2">
+            <div class="border-l-4 border-green-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
-                Αξιολόγηση 6 - Ηθική & Δεοντολογία στην ΤΝ
+                Αξιολόγηση 5 - DYPA300: Βασικές Έννοιες και Επιπτώσεις της Τεχνητής Νοημοσύνης
               </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Εύκολο</p>
+            </div>
+            <div class="border-l-4 border-yellow-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
+                Αξιολόγηση 6 - DYPA300: Ηθική και Υπεύθυνη Χρήση της Τεχνητής Νοημοσύνης
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
