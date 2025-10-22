@@ -1,5 +1,6 @@
 import { assessment1 } from "./assessment-1";
 import { assessment2 } from "./assessment-2";
+import { assessment3 } from "./assessment-3";
 import { assessment4 } from "./assessment-4";
 import { assessment5 } from "./assessment-5";
 import { assessment6 } from "./assessment-6";
@@ -17,6 +18,7 @@ export const generateMixedAssessment = () => {
   const allQuestions = [
     ...assessment1.questions,
     ...assessment2.questions,
+    ...assessment3.questions,
     ...assessment4.questions,
     ...assessment5.questions,
     ...assessment6.questions,
@@ -39,4 +41,3 @@ export const generateMixedAssessment = () => {
 };
 
 export const assessmentMixed = generateMixedAssessment();
-
