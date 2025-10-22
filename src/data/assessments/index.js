@@ -4,6 +4,7 @@ import { assessment3 } from "./assessment-3";
 import { assessment4 } from "./assessment-4";
 import { assessment5 } from "./assessment-5";
 import { assessment6 } from "./assessment-6";
+import { assessment7 } from "./assessment-7";
 import { generateMixedAssessment } from "./assessment-mixed";
 
 export const assessments = [
@@ -13,11 +14,12 @@ export const assessments = [
   assessment4,
   assessment5,
   assessment6,
+  assessment7,
   generateMixedAssessment(),
 ];
 
 export const getAssessmentById = (id) => {
-  if (id === 7) {
+  if (id === 99) {
     return generateMixedAssessment();
   }
   return assessments.find((assessment) => assessment.id === id);

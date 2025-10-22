@@ -1,5 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
+import useDateFormat from "../composables/useDateFormat";
 
 const props = defineProps({
   assessment: {
@@ -9,6 +10,8 @@ const props = defineProps({
 });
 
 const router = useRouter();
+
+const { formatDate } = useDateFormat();
 
 const difficultyColors = {
   easy: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300",
@@ -32,7 +35,7 @@ const goToQuiz = () => {
 <template>
   <div
     @click="goToQuiz"
-    class="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
+    class="flex flex-col justify-between bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
   >
     <div class="flex items-start justify-between mb-3">
       <h3 class="text-lg font-semibold text-gray-900 dark:text-white flex-1">
@@ -52,7 +55,7 @@ const goToQuiz = () => {
       {{ assessment.description }}
     </p>
 
-    <div class="flex items-center justify-between text-sm">
+    <div class="flex flex-col items-start justify-between text-sm gap-1">
       <div class="flex items-center text-gray-500 dark:text-gray-400">
         <svg
           class="w-5 h-5 mr-1"
@@ -68,6 +71,11 @@ const goToQuiz = () => {
           />
         </svg>
         <span>{{ assessment.questions.length }} ερωτήσεις</span>
+      </div>
+
+      <div class="text-gray-500 dark:text-gray-400">
+        <span class="mr-2">Δημιουργήθηκε:</span>
+        <span class="font-medium">{{ formatDate(assessment.createdAt, 'dd-MM-yyyy') }}</span>
       </div>
 
       <div class="flex items-center text-blue-600 dark:text-blue-400 font-medium">

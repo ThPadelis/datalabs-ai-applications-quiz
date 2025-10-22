@@ -4,6 +4,7 @@ import { assessment3 } from "./assessment-3";
 import { assessment4 } from "./assessment-4";
 import { assessment5 } from "./assessment-5";
 import { assessment6 } from "./assessment-6";
+import { assessment7 } from "./assessment-7";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -22,13 +23,15 @@ export const generateMixedAssessment = () => {
     ...assessment4.questions,
     ...assessment5.questions,
     ...assessment6.questions,
+    ...assessment7.questions,
   ];
 
   const shuffledQuestions = shuffleArray(allQuestions);
   const selectedQuestions = shuffledQuestions.slice(0, 10);
 
   return {
-    id: 7,
+    id: 99,
+    createdAt: "-",
     title: "Μικτή Αξιολόγηση",
     description:
       "10 τυχαίες ερωτήσεις από όλες τις θεματικές ενότητες για ολοκληρωμένη αξιολόγηση.",

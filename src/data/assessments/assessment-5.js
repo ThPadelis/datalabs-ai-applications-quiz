@@ -1,5 +1,6 @@
 export const assessment5 = {
   id: 5,
+  createdAt: "2025-10-01T18:00:00Z",
   title:
     "Αξιολόγηση 5 - DYPA300: Βασικές Έννοιες και Επιπτώσεις της Τεχνητής Νοημοσύνης",
   description:

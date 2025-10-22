@@ -6,15 +6,15 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## 📋 Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 6 different assessments plus 1 mixed assessment with a total of 70 questions covering topics from basic concepts to advanced ethics and business applications of AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 7 different assessments plus 1 mixed assessment with a total of 80 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
 ## ✨ Features
 
 ### 🎯 Assessments
-- **6 Assessments** with different difficulty levels
-- **70 Multiple Choice Questions** (60 + 10 mixed)
+- **7 Assessments** with different difficulty levels
+- **80 Multiple Choice Questions** (70 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -173,9 +173,11 @@ datalabs-ai-applications-quiz/
 │   │   ├── assessments/            # Assessment definitions
 │   │   │   ├── assessment-1.js     # AI Introduction assessment
 │   │   │   ├── assessment-2.js     # Generative AI assessment
+│   │   │   ├── assessment-3.js     # Multimodal AI assessment
 │   │   │   ├── assessment-4.js     # Business AI assessment
 │   │   │   ├── assessment-5.js     # Basic concepts assessment
 │   │   │   ├── assessment-6.js     # Ethics assessment
+│   │   │   ├── assessment-7.js     # Prompt Engineering assessment
 │   │   │   ├── assessment-mixed.js # Mixed assessment generator
 │   │   │   └── index.js            # Assessment exports
 │   │   └── index.js                # Data exports
@@ -217,7 +219,10 @@ datalabs-ai-applications-quiz/
 ### 6. DYPA300: Ηθική και Υπεύθυνη Χρήση της Τεχνητής Νοημοσύνης (Medium)
 10 questions on ethical issues, transparency, responsibility and social impacts of AI.
 
-### 7. Mixed Assessment (Mixed)
+### 7. DYPA300: AI & Prompt Engineering Quiz (Full Set) (Medium)
+20 questions on prompt engineering, AI techniques, and advanced AI usage.
+
+### 8. Mixed Assessment (Mixed)
 10 random questions from all assessment modules.
 
 ## 💡 How It Works
