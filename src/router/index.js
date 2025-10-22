@@ -21,11 +21,11 @@ const routes = [
     name: "About",
     component: () => import("@/views/About.vue"),
   },
-  // {
-  //   path: "/report-issue",
-  //   name: "IssueReporting",
-  //   component: () => import("@/views/IssueReporting.vue"),
-  // },
+  {
+    path: "/bug-report",
+    name: "BugReport",
+    component: () => import("@/views/BugReport.vue"),
+  },
 ];
 
 export const router = createRouter({

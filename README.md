@@ -166,7 +166,6 @@ datalabs-ai-applications-quiz/
 │   ├── composables/                # Vue composables
 │   │   ├── useAppInfo.js           # App information composable
 │   │   ├── useDarkMode.js          # Dark mode composable
-│   │   ├── useGitHub.js            # GitHub integration composable
 │   │   ├── useIndexedDB.js         # IndexedDB operations
 │   │   ├── useServiceWorker.js     # Service worker composable
 │   │   └── useSidebar.js           # Sidebar state management
@@ -185,7 +184,6 @@ datalabs-ai-applications-quiz/
 │   ├── views/                      # Page components
 │   │   ├── About.vue               # About page
 │   │   ├── Dashboard.vue           # Main dashboard
-│   │   ├── IssueReporting.vue      # Issue reporting page
 │   │   ├── Quiz.vue                # Quiz taking view
 │   │   └── Scoreboard.vue          # Score history & statistics
 │   ├── App.vue                     # Root component

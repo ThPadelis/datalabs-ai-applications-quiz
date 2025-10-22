@@ -17,6 +17,10 @@ export default defineConfig({
     VITE_GITHUB_OWNER: JSON.stringify(process.env.VITE_GITHUB_OWNER),
     VITE_GITHUB_REPO: JSON.stringify(process.env.VITE_GITHUB_REPO),
     VITE_GITHUB_TOKEN: JSON.stringify(process.env.VITE_GITHUB_TOKEN),
+    VITE_GOOGLE_SHEETS_API_KEY: JSON.stringify(process.env.VITE_GOOGLE_SHEETS_API_KEY),
+    VITE_GOOGLE_SHEETS_ID: JSON.stringify(process.env.VITE_GOOGLE_SHEETS_ID),
+    VITE_GOOGLE_CLIENT_ID: JSON.stringify(process.env.VITE_GOOGLE_CLIENT_ID),
+    VITE_GOOGLE_CLIENT_SECRET: JSON.stringify(process.env.VITE_GOOGLE_CLIENT_SECRET),
   },
   plugins: [
     vue(),
