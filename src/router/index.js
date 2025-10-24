@@ -21,11 +21,6 @@ const routes = [
     name: "About",
     component: () => import("@/views/About.vue"),
   },
-  {
-    path: "/bug-report",
-    name: "BugReport",
-    component: () => import("@/views/BugReport.vue"),
-  },
 ];
 
 export const router = createRouter({

@@ -1,9 +1,9 @@
 export const assessment7 = {
   id: 7,
   createdAt: "2025-10-22T18:00:00Z",
-  title: "AI & Prompt Engineering Quiz (Full Set)",
+  title: "Αξιολόγηση 7 - DYPA300: Prompt Engineering και AI Εφαρμογές",
   description:
-    "Πλήρες σετ ερωτήσεων σχετικά με Τεχνητή Νοημοσύνη, Prompt Engineering και τεχνικές AI χρήσης.",
+    "Πλήρες σετ ερωτήσεων για prompt engineering, τεχνικές AI χρήσης και πρακτικές εφαρμογές σε διάφορους τομείς.",
   difficulty: "medium",
   questions: [
     {

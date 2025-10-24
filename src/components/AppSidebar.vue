@@ -38,14 +38,6 @@ const { isSidebarOpen, closeSidebar } = useSidebar();
       >
         Σχετικά
       </router-link>
-      <router-link
-        to="/bug-report"
-        @click="closeSidebar"
-        class="block px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
-        active-class="bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
-      >
-        Αναφορά Προβλήματος
-      </router-link>
     </nav>
 
     <OfflineIndicator />

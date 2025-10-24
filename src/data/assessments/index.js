@@ -5,6 +5,7 @@ import { assessment4 } from "./assessment-4";
 import { assessment5 } from "./assessment-5";
 import { assessment6 } from "./assessment-6";
 import { assessment7 } from "./assessment-7";
+import { assessment8 } from "./assessment-8";
 import { generateMixedAssessment } from "./assessment-mixed";
 
 export const assessments = [
@@ -15,6 +16,7 @@ export const assessments = [
   assessment5,
   assessment6,
   assessment7,
+  assessment8,
   generateMixedAssessment(),
 ];
 
@@ -28,4 +30,3 @@ export const getAssessmentById = (id) => {
 export const getAllAssessments = () => {
   return assessments;
 };
-

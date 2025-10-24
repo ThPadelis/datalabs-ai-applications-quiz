@@ -1,6 +1,6 @@
 export const assessment4 = {
   id: 4,
-  createdAt: "2025-10-01T18:00:00Z",
+  createdAt: "2025-10-06T18:00:00Z",
   title:
     "Αξιολόγηση 4 - DYPA300: Επιχειρηματική Εφαρμογή της Τεχνητής Νοημοσύνης",
   description:

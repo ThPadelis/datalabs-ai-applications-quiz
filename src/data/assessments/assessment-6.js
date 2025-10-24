@@ -1,6 +1,6 @@
 export const assessment6 = {
   id: 6,
-  createdAt: "2025-10-01T18:00:00Z",
+  createdAt: "2025-10-06T18:00:00Z",
   title:
     "Αξιολόγηση 6 - DYPA300: Ηθική και Υπεύθυνη Χρήση της Τεχνητής Νοημοσύνης",
   description:
