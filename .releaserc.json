@@ -20,5 +20,6 @@
   ],
   "publish": [
     "@semantic-release/github"
-  ]
+  ],
+  "tagFormat": "v${version}"
 }
