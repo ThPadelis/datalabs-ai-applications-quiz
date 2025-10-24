@@ -5,17 +5,14 @@ import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 import { readFileSync } from "fs";
 
-// Get current date for build info
 const buildDate = new Date().toLocaleDateString("el-GR", {
   month: "long",
   year: "numeric",
 });
 
-// Get package.json version
 const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
 const appVersion = packageJson.version;
 
-// https://vite.dev/config/
 export default defineConfig({
   define: {
     VITE_BUILD_DATE: JSON.stringify(buildDate),

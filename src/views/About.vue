@@ -4,7 +4,18 @@ import { useRouter } from "vue-router";
 import { useAppInfo } from "@/composables/useAppInfo";
 
 const router = useRouter();
-const { version, buildDate, framework, status } = useAppInfo();
+const { 
+  version, 
+  buildDate, 
+  framework, 
+  status, 
+  statusCode, 
+  webinarEndDate, 
+  isWebinarActive, 
+  versionInfo, 
+  releaseType, 
+  buildInfo 
+} = useAppInfo();
 
 const goToDashboard = () => {
   router.push("/");
@@ -181,7 +192,7 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-blue-100">150 Ερωτήσεις</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">170 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600 dark:text-blue-200">
                   8 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
                 </p>
@@ -483,13 +494,94 @@ const goToDashboard = () => {
           </div>
         </section>
 
+        <section v-if="!isWebinarActive">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+            Σημείωση Συντήρησης
+          </h2>
+          <div class="bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+            <div class="flex items-start gap-3">
+              <svg
+                class="w-6 h-6 text-yellow-600 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+                />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-3">
+                  Η εφαρμογή βρίσκεται σε λειτουργία συντήρησης
+                </h3>
+                <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                  <p>
+                    Το webinar "Εφαρμογές Τεχνητής Νοημοσύνης σε Οργανισμούς και Επιχειρήσεις" 
+                    ολοκληρώθηκε στις <strong>{{ webinarEndDate }}</strong>.
+                  </p>
+                  <p>
+                    Η εφαρμογή παραμένει διαθέσιμη για εκπαιδευτικούς σκοπούς, αλλά δεν θα 
+                    λαμβάνει νέες ενημερώσεις ή χαρακτηριστικά.
+                  </p>
+                  <ul class="space-y-2 ml-4">
+                    <li class="flex items-start gap-2">
+                      <svg
+                        class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>Όλες οι λειτουργίες παραμένουν διαθέσιμες</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg
+                        class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>Τα δεδομένα σας παραμένουν ασφαλή</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg
+                        class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>Η εφαρμογή μπορεί να χρησιμοποιηθεί offline</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section>
-          <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Έκδοση</h2>
           <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
             <div class="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Έκδοση Εφαρμογής:</p>
-                <p class="font-semibold text-gray-900 dark:text-white">{{ version }}</p>
+                <p class="font-semibold text-gray-900 dark:text-white">{{ version }} ({{ releaseType }})</p>
               </div>
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Τελευταία Ενημέρωση:</p>
@@ -501,7 +593,20 @@ const goToDashboard = () => {
               </div>
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Κατάσταση:</p>
-                <p class="font-semibold text-green-600 dark:text-green-400">{{ status }}</p>
+                <p 
+                  :class="[
+                    'font-semibold',
+                    statusCode === 'active' 
+                      ? 'text-green-600 dark:text-green-400' 
+                      : 'text-yellow-600 dark:text-yellow-400'
+                  ]"
+                >
+                  {{ status }}
+                </p>
+              </div>
+              <div v-if="!isWebinarActive">
+                <p class="text-gray-600 dark:text-gray-400">Webinar Τέλος:</p>
+                <p class="font-semibold text-gray-900 dark:text-white">{{ webinarEndDate }}</p>
               </div>
             </div>
           </div>

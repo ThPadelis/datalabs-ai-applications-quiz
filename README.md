@@ -4,23 +4,23 @@
 
 An interactive Artificial Intelligence assessment application with full offline functionality (PWA).
 
-## 📋 Description
+## Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 8 different assessments plus 1 mixed assessment with a total of 150 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 8 different assessments plus 1 mixed assessment with a total of 170 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
-## ✨ Features
+## Features
 
-### 🎯 Assessments
+### Assessments
 - **8 Assessments** with different difficulty levels
-- **150 Multiple Choice Questions** (140 + 10 mixed)
+- **170 Multiple Choice Questions** (160 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
 - **Auto-Save Progress** during navigation
 
-### 📊 Scoreboard
+### Scoreboard
 - **Automatic Saving** of all attempts to local database
 - **Performance Statistics** - Total attempts, average/best/worst scores
 - **Advanced Filters**:
@@ -32,21 +32,21 @@ The application is designed as a **Progressive Web App (PWA)**, allowing users t
   - Excel format (XLS)
 - **Print** - Optimized print layout
 
-### 💾 Offline-First
+### Offline-First
 - **Progressive Web App (PWA)** - Installs like a native app
 - **Service Worker** - Caches all application files
 - **IndexedDB** - Local data storage
 - **Full Offline Functionality** - All features available without internet
 - **Offline Indicator** - Visual connection status indicator
 
-### 🎨 UI/UX
+### UI/UX
 - **Responsive Design** - Adapts to all devices (desktop, tablet, mobile)
 - **Modern Interface** - Clean and modern UI with Tailwind CSS v4
 - **Dark Theme Support** - Theme color follows system preferences
 - **Smooth Animations** - Smooth transitions and animations
 - **Mobile-First** - Optimized for mobile with hamburger menu sidebar
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend Framework
 - **Vue 3** (v3.5.22) - Progressive JavaScript Framework with Composition API
@@ -69,7 +69,7 @@ The application is designed as a **Progressive Web App (PWA)**, allowing users t
 - **ESLint** - Code linting
 - **pnpm** - Fast, disk space efficient package manager
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v18 or newer)
@@ -97,7 +97,7 @@ pnpm build
 pnpm preview
 ```
 
-## 🚀 Usage
+## Usage
 
 ### Development Mode
 ```bash
@@ -116,7 +116,7 @@ Creates an optimized build and runs it at `http://localhost:4173`
 
 **Note:** To test PWA functionality, use the production build.
 
-## 📱 PWA - Installation & Offline Functionality
+## PWA - Installation & Offline Functionality
 
 ### Install as Application
 
@@ -140,7 +140,7 @@ Creates an optimized build and runs it at `http://localhost:4173`
 5. Enable the "Offline" checkbox
 6. Refresh the page - **it still works!**
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 datalabs-ai-applications-quiz/
@@ -201,7 +201,7 @@ datalabs-ai-applications-quiz/
 └── README.md                       # This file
 ```
 
-## 🎯 Assessments
+## Assessments
 
 ### 1. DYPA300: Τεχνητή Νοημοσύνη (AI) (Easy)
 10 questions on basic concepts, applications, and challenges of AI.
@@ -225,12 +225,12 @@ datalabs-ai-applications-quiz/
 50 questions on prompt engineering, AI techniques, and advanced AI usage.
 
 ### 8. DYPA300: Προηγμένες Τεχνικές Prompt Engineering (Hard)
-40 questions on advanced prompt engineering techniques, model parameters, and practical applications.
+60 questions on advanced prompt engineering techniques, model parameters, and practical applications.
 
 ### 9. Mixed Assessment (Mixed)
 10 random questions from all assessment modules.
 
-## 💡 How It Works
+## How It Works
 
 ### Offline Architecture
 
@@ -269,16 +269,16 @@ datalabs-ai-applications-quiz/
 - **IndexedDB**: Unlimited attempts (typical: ~1KB per attempt)
 - **Total Offline Capability**: Full app + unlimited quiz history
 
-## 🔄 Offline Capabilities
+## Offline Capabilities
 
 ### What Works Offline?
-- ✅ Browse all assessments
-- ✅ Take any quiz
-- ✅ View results with explanations
-- ✅ Check scoreboard with full history
-- ✅ Apply filters and search
-- ✅ Export data to CSV/Excel
-- ✅ Print scoreboard
+- Browse all assessments
+- Take any quiz
+- View results with explanations
+- Check scoreboard with full history
+- Apply filters and search
+- Export data to CSV/Excel
+- Print scoreboard
 
 ### How It Works
 The application uses a combination of technologies to work completely offline:
@@ -288,20 +288,20 @@ The application uses a combination of technologies to work completely offline:
 3. **No server required** - Everything runs in the browser
 4. **Persistent storage** - Data survives browser restarts
 
-## 🔒 Privacy & Security
+## Privacy & Security
 
-- ✅ **Fully local storage** - All data in the user's browser
-- ✅ **No server communication** - No data sent anywhere
-- ✅ **No tracking** - No user tracking
-- ✅ **No analytics** - No data collection
-- ✅ **User control** - Users control their data
+- **Fully local storage** - All data in the user's browser
+- **No server communication** - No data sent anywhere
+- **No tracking** - No user tracking
+- **No analytics** - No data collection
+- **User control** - Users control their data
 
-## 🌐 Language Support
+## Language Support
 
 **Current:** Greek (UI text and content)  
 **Planned:** Multi-language support with vue-i18n
 
-## 🎨 Design Features
+## Design Features
 
 ### Color-Coded Feedback
 - **Green** (≥80%) - Excellent performance
@@ -313,14 +313,14 @@ The application uses a combination of technologies to work completely offline:
 - **Tablet**: 768px - 1024px (Sidebar hidden, hamburger menu)
 - **Desktop**: ≥ 1024px (Sidebar always visible)
 
-## 🚀 Performance
+## Performance
 
 - **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
 - **First Load**: < 2 seconds
 - **Subsequent Loads**: < 1 second (cached)
 - **Offline Load**: Instant (fully cached)
 
-## 🚀 Deployment
+## Deployment
 
 ### GitHub Pages
 
@@ -341,21 +341,21 @@ The application is automatically deployed to GitHub Pages using GitHub Actions.
 ### CI/CD Pipeline
 
 The GitHub Actions workflow:
-- ✅ Runs on every push to main/master
-- ✅ Installs dependencies with pnpm
-- ✅ Builds the production bundle
-- ✅ Deploys to GitHub Pages
-- ✅ Includes PWA service worker
+- Runs on every push to main/master
+- Installs dependencies with pnpm
+- Builds the production bundle
+- Deploys to GitHub Pages
+- Includes PWA service worker
 
-## 🤝 Contributing
+## Contributing
 
 This is a private project. For any questions or suggestions, please contact the project owner.
 
-## 📄 License
+## License
 
 Private Project - All Rights Reserved
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Developed with modern web technologies to provide an excellent educational experience in the field of Artificial Intelligence.
 
