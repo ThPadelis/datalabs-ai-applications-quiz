@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
+import { readFileSync } from "fs";
 
 // Get current date for build info
 const buildDate = new Date().toLocaleDateString("el-GR", {
@@ -10,10 +11,15 @@ const buildDate = new Date().toLocaleDateString("el-GR", {
   year: "numeric",
 });
 
+// Get package.json version
+const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
+const appVersion = packageJson.version;
+
 // https://vite.dev/config/
 export default defineConfig({
   define: {
     VITE_BUILD_DATE: JSON.stringify(buildDate),
+    VITE_APP_VERSION: JSON.stringify(appVersion),
   },
   plugins: [
     vue(),
