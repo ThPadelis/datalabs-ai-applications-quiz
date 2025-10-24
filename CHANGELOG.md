@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.0.0...v1.1.0) (2025-10-24)
+
+
+### Features
+
+* refactor components into page-specific folders and add scoreboard reset functionality ([931b3c7](https://github.com/ThPadelis/datalabs-ai-applications-quiz/commit/931b3c7bef407c45cfdb73cc37c25bb14359d9b7))
+
 # 1.0.0 (2025-10-24)
 
 
