@@ -1,10 +1,15 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 import { useIndexedDB } from "@/composables/useIndexedDB";
-import BaseButton from "@/components/BaseButton.vue";
 import { assessments as allAssessments } from "@/data";
+import { 
+  ScoreboardStats, 
+  ScoreboardFilters, 
+  ScoreboardTable, 
+  ResetScoreboardModal 
+} from "@/components/scoreboard";
 
-const { getAllAttempts } = useIndexedDB();
+const { getAllAttempts, clearAllAttempts } = useIndexedDB();
 
 const attempts = ref([]);
 const loading = ref(true);
@@ -12,6 +17,8 @@ const selectedQuiz = ref("all");
 const selectedDateRange = ref("all");
 const minScore = ref(0);
 const maxScore = ref(100);
+const showResetModal = ref(false);
+const resetting = ref(false);
 
 const assessments = computed(() => {
   return [{ id: "all", title: "Όλες οι Αξιολογήσεις" }, ...allAssessments];
@@ -109,12 +116,6 @@ const formatTime = (seconds) => {
   return `${minutes}:${secs.toString().padStart(2, "0")}`;
 };
 
-const getScoreColor = (percentage) => {
-  if (percentage >= 80) return "text-green-600 dark:text-green-400 font-semibold";
-  if (percentage >= 60) return "text-yellow-600 dark:text-yellow-400 font-semibold";
-  return "text-red-600 dark:text-red-400 font-semibold";
-};
-
 const exportToCSV = () => {
   const headers = [
     "Αξιολόγηση",
@@ -199,6 +200,28 @@ const printTable = () => {
   window.print();
 };
 
+const openResetModal = () => {
+  showResetModal.value = true;
+};
+
+const closeResetModal = () => {
+  showResetModal.value = false;
+};
+
+const resetScoreboard = async () => {
+  resetting.value = true;
+  try {
+    await clearAllAttempts();
+    await loadAttempts();
+    closeResetModal();
+  } catch (error) {
+    console.error("Failed to reset scoreboard:", error);
+    alert("Σφάλμα κατά την επαναφορά του πίνακα βαθμολογίας");
+  } finally {
+    resetting.value = false;
+  }
+};
+
 onMounted(() => {
   loadAttempts();
 });
@@ -213,232 +236,33 @@ onMounted(() => {
       </p>
     </div>
 
-    <div v-if="statistics" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 no-print">
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-blue-500">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Συνολικές Προσπάθειες</p>
-        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ statistics.total }}</p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-green-500">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Καλύτερη Βαθμολογία</p>
-        <p class="text-2xl font-bold text-green-600 dark:text-green-400">{{ statistics.bestScore }}%</p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-yellow-500">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Μέση Βαθμολογία</p>
-        <p class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">
-          {{ statistics.avgScore }}%
-        </p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-red-500">
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">Χειρότερη Βαθμολογία</p>
-        <p class="text-2xl font-bold text-red-600 dark:text-red-400">{{ statistics.worstScore }}%</p>
-      </div>
-    </div>
+    <ScoreboardStats :statistics="statistics" />
 
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow mb-6 no-print">
-      <div class="p-4 border-b border-gray-200 dark:border-gray-700">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Φίλτρα</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Αξιολόγηση
-            </label>
-            <select
-              v-model="selectedQuiz"
-              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            >
-              <option
-                v-for="assessment in assessments"
-                :key="assessment.id"
-                :value="assessment.id"
-              >
-                {{ assessment.title }}
-              </option>
-            </select>
-          </div>
+    <ScoreboardFilters
+      :assessments="assessments"
+      v-model:selected-quiz="selectedQuiz"
+      v-model:selected-date-range="selectedDateRange"
+      v-model:min-score="minScore"
+      v-model:max-score="maxScore"
+      :attempts-count="attempts.length"
+      @export-csv="exportToCSV"
+      @export-excel="exportToExcel"
+      @print-table="printTable"
+      @reset-scoreboard="openResetModal"
+    />
 
-          <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Χρονική Περίοδος
-            </label>
-            <select
-              v-model="selectedDateRange"
-              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            >
-              <option value="all">Όλες οι Ημερομηνίες</option>
-              <option value="today">Σήμερα</option>
-              <option value="week">Τελευταία Εβδομάδα</option>
-              <option value="month">Τελευταίος Μήνας</option>
-            </select>
-          </div>
+    <ScoreboardTable
+      :loading="loading"
+      :filtered-attempts="filteredAttempts"
+    />
 
-          <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Ελάχιστο Ποσοστό (%)
-            </label>
-            <input
-              v-model.number="minScore"
-              type="number"
-              min="0"
-              max="100"
-              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Μέγιστο Ποσοστό (%)
-            </label>
-            <input
-              v-model.number="maxScore"
-              type="number"
-              min="0"
-              max="100"
-              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="p-4 flex gap-2 flex-wrap">
-        <BaseButton variant="success" @click="exportToCSV">
-          <template #icon-left>
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-          </template>
-          Εξαγωγή CSV
-        </BaseButton>
-
-        <BaseButton variant="primary" @click="exportToExcel">
-          <template #icon-left>
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-          </template>
-          Εξαγωγή Excel
-        </BaseButton>
-
-        <BaseButton variant="secondary" @click="printTable">
-          <template #icon-left>
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
-              />
-            </svg>
-          </template>
-          Εκτύπωση
-        </BaseButton>
-      </div>
-    </div>
-
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-      <div v-if="loading" class="p-8 text-center">
-        <p class="text-gray-500 dark:text-gray-400">Φόρτωση δεδομένων...</p>
-      </div>
-
-      <div
-        v-else-if="filteredAttempts.length === 0"
-        class="p-8 text-center"
-      >
-        <p class="text-gray-500 dark:text-gray-400">Δεν βρέθηκαν προσπάθειες με τα επιλεγμένα φίλτρα.</p>
-      </div>
-
-      <div v-else class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-          <thead class="bg-gray-50 dark:bg-gray-700">
-            <tr>
-              <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-              >
-                #
-              </th>
-              <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-              >
-                Αξιολόγηση
-              </th>
-              <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-              >
-                Βαθμολογία
-              </th>
-              <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-              >
-                Ποσοστό
-              </th>
-              <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-              >
-                Χρόνος
-              </th>
-              <th
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
-              >
-                Ημερομηνία Ολοκλήρωσης
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-            <tr
-              v-for="(attempt, index) in filteredAttempts"
-              :key="attempt.id"
-              class="hover:bg-gray-50 dark:hover:bg-gray-700"
-            >
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                {{ index + 1 }}
-              </td>
-              <td class="px-6 py-4 text-sm text-gray-900 dark:text-white">
-                {{ attempt.assessmentTitle }}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                {{ attempt.score }}/{{ attempt.totalQuestions }}
-              </td>
-              <td
-                class="px-6 py-4 whitespace-nowrap text-sm"
-                :class="getScoreColor(attempt.percentage)"
-              >
-                {{ attempt.percentage }}%
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                {{ formatTime(attempt.timeSpent) }}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                {{ formatDate(attempt.completedAt) }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <ResetScoreboardModal
+      :show="showResetModal"
+      :attempts-count="attempts.length"
+      :resetting="resetting"
+      @close="closeResetModal"
+      @confirm-reset="resetScoreboard"
+    />
   </div>
 </template>
 

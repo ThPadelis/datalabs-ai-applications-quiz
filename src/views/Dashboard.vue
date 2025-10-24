@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import AssessmentCard from "@/components/AssessmentCard.vue";
+import { AssessmentCard } from "@/components/dashboard";
 import { assessments as allAssessments } from "@/data";
 
 const assessments = ref(allAssessments);

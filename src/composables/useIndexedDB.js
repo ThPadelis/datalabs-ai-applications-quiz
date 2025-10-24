@@ -105,11 +105,30 @@ export const useIndexedDB = () => {
     });
   };
 
+  const clearAllAttempts = async () => {
+    if (!db) await initDB();
+
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction([STORE_NAME], "readwrite");
+      const objectStore = transaction.objectStore(STORE_NAME);
+      const request = objectStore.clear();
+
+      request.onsuccess = () => {
+        resolve(true);
+      };
+
+      request.onerror = () => {
+        reject(new Error("Failed to clear attempts"));
+      };
+    });
+  };
+
   return {
     initDB,
     saveAttempt,
     getAllAttempts,
     getAttemptsByAssessment,
+    clearAllAttempts,
   };
 };
 

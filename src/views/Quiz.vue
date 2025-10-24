@@ -1,10 +1,12 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import QuestionCard from "@/components/QuestionCard.vue";
-import QuizResults from "@/components/QuizResults.vue";
-import UnansweredQuestionsModal from "@/components/UnansweredQuestionsModal.vue";
-import LeaveQuizModal from "@/components/LeaveQuizModal.vue";
+import { 
+  QuestionCard, 
+  QuizResults, 
+  UnansweredQuestionsModal, 
+  LeaveQuizModal 
+} from "@/components/quiz";
 import BaseButton from "@/components/BaseButton.vue";
 import { useIndexedDB } from "@/composables/useIndexedDB";
 import { getAssessmentById } from "@/data";

@@ -151,17 +151,28 @@ datalabs-ai-applications-quiz/
 │   └── web-app-manifest-*.png       # PWA manifest icons
 ├── src/
 │   ├── components/                  # Vue components
+│   │   ├── about/                   # About page components
+│   │   ├── dashboard/               # Dashboard page components
+│   │   │   ├── AssessmentCard.vue   # Quiz card on dashboard
+│   │   │   └── index.js             # Component exports
+│   │   ├── quiz/                    # Quiz page components
+│   │   │   ├── QuestionCard.vue     # Question display component
+│   │   │   ├── QuizResults.vue      # Results page component
+│   │   │   ├── LeaveQuizModal.vue   # Leave quiz confirmation modal
+│   │   │   ├── UnansweredQuestionsModal.vue  # Warning modal
+│   │   │   └── index.js             # Component exports
+│   │   ├── scoreboard/              # Scoreboard page components
+│   │   │   ├── ScoreboardStats.vue  # Statistics cards
+│   │   │   ├── ScoreboardFilters.vue # Filter controls
+│   │   │   ├── ScoreboardTable.vue  # Data table
+│   │   │   ├── ResetScoreboardModal.vue # Reset confirmation modal
+│   │   │   └── index.js             # Component exports
 │   │   ├── AppFooter.vue           # Footer component
 │   │   ├── AppOverlay.vue          # Mobile sidebar overlay
 │   │   ├── AppSidebar.vue          # Navigation sidebar
 │   │   ├── AppTopBar.vue           # Top navigation bar
-│   │   ├── AssessmentCard.vue      # Quiz card on dashboard
 │   │   ├── BaseButton.vue          # Reusable button component
-│   │   ├── LeaveQuizModal.vue      # Leave quiz confirmation modal
 │   │   ├── OfflineIndicator.vue    # Offline status indicator
-│   │   ├── QuestionCard.vue        # Question display component
-│   │   ├── QuizResults.vue         # Results page component
-│   │   ├── UnansweredQuestionsModal.vue  # Warning modal
 │   │   └── UpdateNotification.vue  # PWA update notification
 │   ├── composables/                # Vue composables
 │   │   ├── useAppInfo.js           # App information composable
