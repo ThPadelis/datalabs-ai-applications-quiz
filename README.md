@@ -6,15 +6,15 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## 📋 Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 7 different assessments plus 1 mixed assessment with a total of 120 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 8 different assessments plus 1 mixed assessment with a total of 150 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
 ## ✨ Features
 
 ### 🎯 Assessments
-- **7 Assessments** with different difficulty levels
-- **120 Multiple Choice Questions** (110 + 10 mixed)
+- **8 Assessments** with different difficulty levels
+- **150 Multiple Choice Questions** (140 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -179,6 +179,7 @@ datalabs-ai-applications-quiz/
 │   │   │   ├── assessment-5.js     # Basic concepts assessment
 │   │   │   ├── assessment-6.js     # Ethics assessment
 │   │   │   ├── assessment-7.js     # Prompt Engineering assessment
+│   │   │   ├── assessment-8.js     # Advanced Prompt Engineering assessment
 │   │   │   ├── assessment-mixed.js # Mixed assessment generator
 │   │   │   └── index.js            # Assessment exports
 │   │   └── index.js                # Data exports
@@ -223,7 +224,10 @@ datalabs-ai-applications-quiz/
 ### 7. DYPA300: AI & Prompt Engineering Quiz (Full Set) (Medium)
 50 questions on prompt engineering, AI techniques, and advanced AI usage.
 
-### 8. Mixed Assessment (Mixed)
+### 8. DYPA300: Προηγμένες Τεχνικές Prompt Engineering (Hard)
+40 questions on advanced prompt engineering techniques, model parameters, and practical applications.
+
+### 9. Mixed Assessment (Mixed)
 10 random questions from all assessment modules.
 
 ## 💡 How It Works

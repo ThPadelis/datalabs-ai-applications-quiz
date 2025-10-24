@@ -12,7 +12,7 @@ const goToDashboard = () => {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-6xl mx-auto">
     <div class="mb-6">
       <BaseButton variant="ghost" size="sm" @click="goToDashboard">
         <template #icon-left>
@@ -43,8 +43,87 @@ const goToDashboard = () => {
       <div class="space-y-8">
         <section>
           <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-            Τι είναι αυτή η εφαρμογή;
+            Σημαντική Προειδοποίηση
           </h2>
+          <div class="bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-lg p-6">
+            <div class="flex items-start gap-3">
+              <svg
+                class="w-6 h-6 text-amber-600 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+                />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white mb-3">
+                  Αυτό το Quiz δεν συνδέεται με την επίσημη πλατφόρμα DataLabs
+                </h3>
+                <div class="space-y-3 text-gray-700 dark:text-gray-300">
+                  <p>
+                    <strong>Σημαντικό:</strong> Αυτή η εφαρμογή quiz είναι ένα ανεξάρτητο εργαλείο εκμάθησης και 
+                    <strong>δεν σχετίζεται</strong> με τα επίσημα σύγχρονα και ασύγχρονα εργαστήρια της πλατφόρμας DataLabs.
+                  </p>
+                  <ul class="space-y-2 ml-4">
+                    <li class="flex items-start gap-2">
+                      <svg
+                        class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>Ο χρόνος που αφιερώνετε σε αυτή την εφαρμογή <strong>δεν καταγράφεται</strong> στην επίσημη πλατφόρμα DataLabs</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg
+                        class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>Χρησιμοποιήστε αυτή την εφαρμογή <strong>μόνο για δοκιμή των γνώσεών σας</strong></span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <svg
+                        class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>Τα αποτελέσματα δεν επηρεάζουν την επίσημη αξιολόγηση στο DataLabs</span>
+                    </li>
+                  </ul>
+                  <p class="text-sm bg-amber-100 dark:bg-amber-800/50 p-3 rounded border-l-4 border-amber-400">
+                    <strong>Σημείωση:</strong> Για την επίσημη αξιολόγηση και την καταγραφή του χρόνου σας, 
+                    πρέπει να χρησιμοποιήσετε την επίσημη πλατφόρμα DataLabs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
           <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
             Η εφαρμογή <strong>Datalabs AI Applications Quiz</strong> είναι ένα
             διαδραστικό σύστημα αξιολόγησης γνώσεων που δημιουργήθηκε για το
@@ -71,7 +150,7 @@ const goToDashboard = () => {
           </p>
           <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
             <li>
-              Δοκιμάσουν τις γνώσεις τους σε 7 διαφορετικές αξιολογήσεις + 1 μικτή
+              Δοκιμάσουν τις γνώσεις τους σε 8 διαφορετικές αξιολογήσεις + 1 μικτή
             </li>
             <li>Λάβουν άμεση ανατροφοδότηση με αναλυτικές επεξηγήσεις</li>
             <li>
@@ -102,9 +181,9 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-blue-100">120 Ερωτήσεις</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">150 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600 dark:text-blue-200">
-                  7 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
+                  8 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
                 </p>
               </div>
             </div>
@@ -386,6 +465,12 @@ const goToDashboard = () => {
                 Αξιολόγηση 7 - DYPA300: AI & Prompt Engineering Quiz (Full Set)
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μέτριο</p>
+            </div>
+            <div class="border-l-4 border-red-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
+                Αξιολόγηση 8 - DYPA300: Προηγμένες Τεχνικές Prompt Engineering
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
