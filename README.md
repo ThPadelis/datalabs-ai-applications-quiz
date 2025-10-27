@@ -6,15 +6,15 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 8 different assessments plus 1 mixed assessment with a total of 170 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 9 different assessments plus 1 mixed assessment with a total of 256 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
 ## Features
 
 ### Assessments
-- **8 Assessments** with different difficulty levels
-- **170 Multiple Choice Questions** (160 + 10 mixed)
+- **9 Assessments** with different difficulty levels
+- **256 Multiple Choice Questions** (246 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -238,7 +238,10 @@ datalabs-ai-applications-quiz/
 ### 8. DYPA300: Προηγμένες Τεχνικές Prompt Engineering (Hard)
 60 questions on advanced prompt engineering techniques, model parameters, and practical applications.
 
-### 9. Mixed Assessment (Mixed)
+### 9. DYPA300: Microsoft Copilot, Outlook & Teams (Hard)
+76 questions on Microsoft Copilot products including Pro subscription features, Microsoft 365 integration, and Copilot functionalities in Outlook and Teams.
+
+### 10. Mixed Assessment (Mixed)
 10 random questions from all assessment modules.
 
 ## How It Works

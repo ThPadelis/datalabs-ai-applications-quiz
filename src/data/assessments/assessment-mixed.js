@@ -6,6 +6,7 @@ import { assessment5 } from "./assessment-5";
 import { assessment6 } from "./assessment-6";
 import { assessment7 } from "./assessment-7";
 import { assessment8 } from "./assessment-8";
+import { assessment9 } from "./assessment-9";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -26,6 +27,7 @@ export const generateMixedAssessment = () => {
     ...assessment6.questions,
     ...assessment7.questions,
     ...assessment8.questions,
+    ...assessment9.questions,
   ];
 
   const shuffledQuestions = shuffleArray(allQuestions);

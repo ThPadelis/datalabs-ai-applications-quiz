@@ -6,6 +6,7 @@ import { assessment5 } from "./assessment-5";
 import { assessment6 } from "./assessment-6";
 import { assessment7 } from "./assessment-7";
 import { assessment8 } from "./assessment-8";
+import { assessment9 } from "./assessment-9";
 import { generateMixedAssessment } from "./assessment-mixed";
 
 export const assessments = [
@@ -17,6 +18,7 @@ export const assessments = [
   assessment6,
   assessment7,
   assessment8,
+  assessment9,
   generateMixedAssessment(),
 ];
 

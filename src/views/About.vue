@@ -159,9 +159,9 @@ const goToDashboard = () => {
             συμμετέχοντες του webinar. Μέσω αυτής της πλατφόρμας, οι χρήστες
             μπορούν να:
           </p>
-          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
             <li>
-              Δοκιμάσουν τις γνώσεις τους σε 8 διαφορετικές αξιολογήσεις + 1 μικτή
+              Δοκιμάσουν τις γνώσεις τους σε 9 διαφορετικές αξιολογήσεις + 1 μικτή
             </li>
             <li>Λάβουν άμεση ανατροφοδότηση με αναλυτικές επεξηγήσεις</li>
             <li>
@@ -192,9 +192,9 @@ const goToDashboard = () => {
                 />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-blue-100">170 Ερωτήσεις</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">256 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600 dark:text-blue-200">
-                  8 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
+                  9 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
                 </p>
               </div>
             </div>
@@ -480,6 +480,12 @@ const goToDashboard = () => {
             <div class="border-l-4 border-red-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
                 Αξιολόγηση 8 - DYPA300: Προηγμένες Τεχνικές Prompt Engineering
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
+            </div>
+            <div class="border-l-4 border-red-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
+                Αξιολόγηση 9 - DYPA300: Microsoft Copilot, Outlook & Teams
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Δύσκολο</p>
             </div>
