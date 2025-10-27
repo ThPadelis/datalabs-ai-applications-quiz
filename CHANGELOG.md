@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.1.0...v1.2.0) (2025-10-27)
+
+
+### Features
+
+* add assessment 9 with 76 Microsoft Copilot questions covering Outlook and Teams ([8093648](https://github.com/ThPadelis/datalabs-ai-applications-quiz/commit/809364832bb19192ef22b0198aab6ce065ddcea3))
+
 # [1.1.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.0.0...v1.1.0) (2025-10-24)
 
 
