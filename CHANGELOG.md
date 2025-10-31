@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.2.0...v1.3.0) (2025-10-31)
+
+
+### Features
+
+* add assessment 10 for Microsoft Copilot in PowerPoint ([294b271](https://github.com/ThPadelis/datalabs-ai-applications-quiz/commit/294b271d0e94a494a4955ffc6c3a81a8f7d694c8))
+
 # [1.2.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.1.0...v1.2.0) (2025-10-27)
 
 
