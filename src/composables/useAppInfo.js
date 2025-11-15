@@ -1,5 +1,8 @@
 export function useAppInfo() {
-  const version = import.meta.env.VITE_APP_VERSION || '1.0.0'
+  // Get version from env, remove 'v' prefix if present, and clean up any extra characters
+  const rawVersion = import.meta.env.VITE_APP_VERSION || '1.3.0'
+  const version = rawVersion.replace(/^v/, '').trim()
+  
   const buildDate = import.meta.env.VITE_BUILD_DATE || new Date().toLocaleDateString('el-GR', {
     month: 'long',
     year: 'numeric'
@@ -10,11 +13,14 @@ export function useAppInfo() {
   const isWebinarActive = currentDate <= webinarEndDate
   
   const getVersionInfo = () => {
+    // Split version and handle edge cases
     const versionParts = version.split('.')
+    // Remove any non-numeric characters from each part
+    const cleanParts = versionParts.map(part => part.replace(/\D/g, '') || '0')
     return {
-      major: versionParts[0] || '1',
-      minor: versionParts[1] || '0', 
-      patch: versionParts[2] || '0',
+      major: cleanParts[0] || '1',
+      minor: cleanParts[1] || '0', 
+      patch: cleanParts[2] || '0',
       full: version
     }
   }

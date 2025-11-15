@@ -6,15 +6,15 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 9 different assessments plus 1 mixed assessment with a total of 256 questions covering topics from basic concepts to advanced ethics, business applications, and prompt engineering in AI.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 11 different assessments plus 1 mixed assessment with a total of 316 questions covering topics from basic concepts to advanced ethics, business applications, prompt engineering, and European AI policy.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
 ## Features
 
 ### Assessments
-- **9 Assessments** with different difficulty levels
-- **256 Multiple Choice Questions** (246 + 10 mixed)
+- **11 Assessments** with different difficulty levels
+- **316 Multiple Choice Questions** (306 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -191,6 +191,9 @@ datalabs-ai-applications-quiz/
 │   │   │   ├── assessment-6.js     # Ethics assessment
 │   │   │   ├── assessment-7.js     # Prompt Engineering assessment
 │   │   │   ├── assessment-8.js     # Advanced Prompt Engineering assessment
+│   │   │   ├── assessment-9.js     # Microsoft Copilot, Outlook & Teams assessment
+│   │   │   ├── assessment-10.js    # Microsoft Copilot PowerPoint assessment
+│   │   │   ├── assessment-11.js    # AI Ethics, Governance & European Policy assessment
 │   │   │   ├── assessment-mixed.js # Mixed assessment generator
 │   │   │   └── index.js            # Assessment exports
 │   │   └── index.js                # Data exports
@@ -241,7 +244,13 @@ datalabs-ai-applications-quiz/
 ### 9. DYPA300: Microsoft Copilot, Outlook & Teams (Hard)
 76 questions on Microsoft Copilot products including Pro subscription features, Microsoft 365 integration, and Copilot functionalities in Outlook and Teams.
 
-### 10. Mixed Assessment (Mixed)
+### 10. DYPA300: Microsoft Copilot στο PowerPoint (Hard)
+19 questions on Microsoft Copilot in PowerPoint, including presentation creation and organization, summarization, branding, coaching, speaker notes, and converting Word/Excel/PDF files to slides.
+
+### 11. DYPA300: Ηθική, Διακυβέρνηση και Ευρωπαϊκή Πολιτική για την ΤΝ (Hard)
+41 questions on ethical use of AI, governance and regulation of AI, including European initiatives (Digital Strategy, Horizon Europe, Gaia-X, Digital Europe, AI Act), ethical issues (bias, transparency, accountability), explainable AI, and data governance policies.
+
+### 12. Mixed Assessment (Mixed)
 10 random questions from all assessment modules.
 
 ## How It Works
