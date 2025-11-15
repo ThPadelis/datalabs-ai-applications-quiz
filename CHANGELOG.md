@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.3.0...v1.4.0) (2025-11-15)
+
+
+### Features
+
+* add assessment 11 for AI ethics, governance and European policy ([1a2ff39](https://github.com/ThPadelis/datalabs-ai-applications-quiz/commit/1a2ff3901679f2c3715ccd65d981de2a94684742))
+
 # [1.3.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.2.0...v1.3.0) (2025-10-31)
 
 
