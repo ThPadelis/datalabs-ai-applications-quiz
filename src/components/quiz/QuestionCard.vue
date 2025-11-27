@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import BaseButton from "@/components/BaseButton.vue";
 
 const props = defineProps({
@@ -8,7 +8,7 @@ const props = defineProps({
     required: true,
   },
   selectedAnswer: {
-    type: Number,
+    type: [Number, Array],
     default: null,
   },
   questionNumber: {
@@ -21,12 +21,51 @@ const emit = defineEmits(["select-answer"]);
 
 const showExplanation = ref(false);
 
+// Check if question has multiple correct answers
+const hasMultipleAnswers = computed(() => {
+  return Array.isArray(props.question.correctIndex);
+});
+
+// Convert selectedAnswer to array format for easier handling
+const selectedAnswersArray = computed(() => {
+  if (props.selectedAnswer === null || props.selectedAnswer === undefined) {
+    return [];
+  }
+  if (Array.isArray(props.selectedAnswer)) {
+    return props.selectedAnswer;
+  }
+  return [props.selectedAnswer];
+});
+
+const isOptionSelected = (index) => {
+  return selectedAnswersArray.value.includes(index);
+};
+
 const selectOption = (index) => {
-  emit("select-answer", index);
+  if (hasMultipleAnswers.value) {
+    // For multiple choice: toggle selection
+    const current = selectedAnswersArray.value;
+    const newSelection = current.includes(index)
+      ? current.filter(i => i !== index)
+      : [...current, index].sort((a, b) => a - b);
+    emit("select-answer", newSelection);
+  } else {
+    // For single choice: replace selection
+    emit("select-answer", index);
+  }
 };
 
 const toggleExplanation = () => {
   showExplanation.value = !showExplanation.value;
+};
+
+const getCorrectAnswersText = () => {
+  if (hasMultipleAnswers.value) {
+    const correctIndices = props.question.correctIndex;
+    return correctIndices.map(idx => props.question.options[idx]).join(", ");
+  } else {
+    return props.question.options[props.question.correctIndex];
+  }
 };
 </script>
 
@@ -66,12 +105,18 @@ const toggleExplanation = () => {
 
     <div class="space-y-3 mb-6">
       <div
+        v-if="hasMultipleAnswers"
+        class="mb-3 text-sm text-gray-600 dark:text-gray-400 italic"
+      >
+        Μπορείτε να επιλέξετε πολλαπλές απαντήσεις
+      </div>
+      <div
         v-for="(option, index) in question.options"
         :key="index"
         @click="selectOption(index)"
         :class="[
           'p-4 rounded-lg border-2 transition-all cursor-pointer',
-          selectedAnswer === index
+          isOptionSelected(index)
             ? 'border-blue-500 dark:border-blue-400 bg-blue-50 dark:bg-blue-900/30'
             : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-gray-50 dark:hover:bg-gray-700',
         ]"
@@ -79,21 +124,41 @@ const toggleExplanation = () => {
         <div class="flex items-center">
           <div
             :class="[
-              'w-5 h-5 rounded-full border-2 flex items-center justify-center mr-3',
-              selectedAnswer === index
+              hasMultipleAnswers
+                ? 'w-5 h-5 rounded border-2 flex items-center justify-center mr-3'
+                : 'w-5 h-5 rounded-full border-2 flex items-center justify-center mr-3',
+              isOptionSelected(index)
                 ? 'border-blue-500 dark:border-blue-400 bg-blue-500 dark:bg-blue-400'
                 : 'border-gray-300 dark:border-gray-600',
             ]"
           >
             <div
-              v-if="selectedAnswer === index"
-              class="w-2 h-2 bg-white rounded-full"
+              v-if="isOptionSelected(index)"
+              :class="[
+                hasMultipleAnswers
+                  ? 'w-3 h-3 bg-white rounded'
+                  : 'w-2 h-2 bg-white rounded-full'
+              ]"
             ></div>
+            <svg
+              v-if="hasMultipleAnswers && isOptionSelected(index)"
+              class="w-3 h-3 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
           </div>
           <span
             :class="[
               'text-sm',
-              selectedAnswer === index
+              isOptionSelected(index)
                 ? 'text-gray-900 dark:text-white font-medium'
                 : 'text-gray-700 dark:text-gray-300',
             ]"
@@ -134,7 +199,7 @@ const toggleExplanation = () => {
             <p class="text-sm font-medium text-blue-900 dark:text-blue-300 mb-1">Επεξήγηση:</p>
             <p class="text-sm text-blue-800 dark:text-blue-200">{{ question.explanation }}</p>
             <p class="text-sm text-blue-900 dark:text-blue-300 font-medium mt-2">
-              Σωστή Απάντηση: {{ question.options[question.correctIndex] }}
+              {{ hasMultipleAnswers ? 'Σωστές Απαντήσεις' : 'Σωστή Απάντηση' }}: {{ getCorrectAnswersText() }}
             </p>
           </div>
         </div>

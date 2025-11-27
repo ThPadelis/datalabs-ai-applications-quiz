@@ -6,15 +6,15 @@ An interactive Artificial Intelligence assessment application with full offline 
 
 ## Description
 
-**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 11 different assessments plus 1 mixed assessment with a total of 316 questions covering topics from basic concepts to advanced ethics, business applications, prompt engineering, and European AI policy.
+**Datalabs AI Applications Quiz** is a comprehensive knowledge assessment system for the DYPA300 program webinar "Artificial Intelligence Applications in Organizations and Businesses". It includes 13 different assessments plus 1 mixed assessment with a total of 418 questions covering topics from basic concepts to advanced ethics, business applications, prompt engineering, neural networks, and European AI policy.
 
 The application is designed as a **Progressive Web App (PWA)**, allowing users to install it on their devices and use it **completely offline**, without requiring an internet connection.
 
 ## Features
 
 ### Assessments
-- **11 Assessments** with different difficulty levels
-- **316 Multiple Choice Questions** (306 + 10 mixed)
+- **13 Assessments** with different difficulty levels
+- **418 Multiple Choice Questions** (408 + 10 mixed)
 - **Detailed Explanations** for each question
 - **Immediate Feedback** with color-coded indicators for correct/incorrect answers
 - **Completion Check** - Warning for unanswered questions
@@ -250,7 +250,13 @@ datalabs-ai-applications-quiz/
 ### 11. DYPA300: Ηθική, Διακυβέρνηση και Ευρωπαϊκή Πολιτική για την ΤΝ (Hard)
 41 questions on ethical use of AI, governance and regulation of AI, including European initiatives (Digital Strategy, Horizon Europe, Gaia-X, Digital Europe, AI Act), ethical issues (bias, transparency, accountability), explainable AI, and data governance policies.
 
-### 12. Mixed Assessment (Mixed)
+### 12. DYPA300: Ανακεφαλαίωση (Mixed)
+57 questions covering all topics covered in the DYPA300 program related to Artificial Intelligence.
+
+### 13. DYPA300: Ανακεφαλαίωση Νευρωνικών Δικτύων και Εφαρμογών (Mixed)
+45 questions focusing on neural networks, their applications (computer vision, natural language processing, robotics), business uses of AI, and Large Language Models (LLMs).
+
+### Mixed Assessment (Mixed)
 10 random questions from all assessment modules.
 
 ## How It Works

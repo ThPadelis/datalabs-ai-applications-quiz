@@ -4,17 +4,17 @@ import { useRouter } from "vue-router";
 import { useAppInfo } from "@/composables/useAppInfo";
 
 const router = useRouter();
-const { 
-  version, 
-  buildDate, 
-  framework, 
-  status, 
-  statusCode, 
-  webinarEndDate, 
-  isWebinarActive, 
-  versionInfo, 
-  releaseType, 
-  buildInfo 
+const {
+  version,
+  buildDate,
+  framework,
+  status,
+  statusCode,
+  webinarEndDate,
+  isWebinarActive,
+  versionInfo,
+  releaseType,
+  buildInfo
 } = useAppInfo();
 
 const goToDashboard = () => {
@@ -27,18 +27,8 @@ const goToDashboard = () => {
     <div class="mb-6">
       <BaseButton variant="ghost" size="sm" @click="goToDashboard">
         <template #icon-left>
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
         </template>
         Επιστροφή στο Dashboard
@@ -58,18 +48,9 @@ const goToDashboard = () => {
           </h2>
           <div class="bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 rounded-lg p-6">
             <div class="flex items-start gap-3">
-              <svg
-                class="w-6 h-6 text-amber-600 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-                />
+              <svg class="w-6 h-6 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-3">
@@ -77,55 +58,39 @@ const goToDashboard = () => {
                 </h3>
                 <div class="space-y-3 text-gray-700 dark:text-gray-300">
                   <p>
-                    <strong>Σημαντικό:</strong> Αυτή η εφαρμογή quiz είναι ένα ανεξάρτητο εργαλείο εκμάθησης και 
-                    <strong>δεν σχετίζεται</strong> με τα επίσημα σύγχρονα και ασύγχρονα εργαστήρια της πλατφόρμας DataLabs.
+                    <strong>Σημαντικό:</strong> Αυτή η εφαρμογή quiz είναι ένα ανεξάρτητο εργαλείο εκμάθησης και
+                    <strong>δεν σχετίζεται</strong> με τα επίσημα σύγχρονα και ασύγχρονα εργαστήρια της πλατφόρμας
+                    DataLabs.
                   </p>
                   <ul class="space-y-2 ml-4">
                     <li class="flex items-start gap-2">
-                      <svg
-                        class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
+                      <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
                           d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                          clip-rule="evenodd"
-                        />
+                          clip-rule="evenodd" />
                       </svg>
-                      <span>Ο χρόνος που αφιερώνετε σε αυτή την εφαρμογή <strong>δεν καταγράφεται</strong> στην επίσημη πλατφόρμα DataLabs</span>
+                      <span>Ο χρόνος που αφιερώνετε σε αυτή την εφαρμογή <strong>δεν καταγράφεται</strong> στην επίσημη
+                        πλατφόρμα DataLabs</span>
                     </li>
                     <li class="flex items-start gap-2">
-                      <svg
-                        class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
+                      <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
                           d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                          clip-rule="evenodd"
-                        />
+                          clip-rule="evenodd" />
                       </svg>
                       <span>Χρησιμοποιήστε αυτή την εφαρμογή <strong>μόνο για δοκιμή των γνώσεών σας</strong></span>
                     </li>
                     <li class="flex items-start gap-2">
-                      <svg
-                        class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
+                      <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
                           d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                          clip-rule="evenodd"
-                        />
+                          clip-rule="evenodd" />
                       </svg>
                       <span>Τα αποτελέσματα δεν επηρεάζουν την επίσημη αξιολόγηση στο DataLabs</span>
                     </li>
                   </ul>
                   <p class="text-sm bg-amber-100 dark:bg-amber-800/50 p-3 rounded border-l-4 border-amber-400">
-                    <strong>Σημείωση:</strong> Για την επίσημη αξιολόγηση και την καταγραφή του χρόνου σας, 
+                    <strong>Σημείωση:</strong> Για την επίσημη αξιολόγηση και την καταγραφή του χρόνου σας,
                     πρέπει να χρησιμοποιήσετε την επίσημη πλατφόρμα DataLabs.
                   </p>
                 </div>
@@ -139,10 +104,8 @@ const goToDashboard = () => {
             Η εφαρμογή <strong>Datalabs AI Applications Quiz</strong> είναι ένα
             διαδραστικό σύστημα αξιολόγησης γνώσεων που δημιουργήθηκε για το
             webinar
-            <strong
-              >"Εφαρμογές Τεχνητής Νοημοσύνης σε Οργανισμούς και
-              Επιχειρήσεις"</strong
-            >.
+            <strong>"Εφαρμογές Τεχνητής Νοημοσύνης σε Οργανισμούς και
+              Επιχειρήσεις"</strong>.
           </p>
           <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
             Πρόκειται για μια πλήρως λειτουργική Progressive Web App (PWA) που
@@ -159,9 +122,9 @@ const goToDashboard = () => {
             συμμετέχοντες του webinar. Μέσω αυτής της πλατφόρμας, οι χρήστες
             μπορούν να:
           </p>
-            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
             <li>
-              Δοκιμάσουν τις γνώσεις τους σε 11 διαφορετικές αξιολογήσεις + 1 μικτή
+              Δοκιμάσουν τις γνώσεις τους σε 13 διαφορετικές αξιολογήσεις + 1 μικτή
             </li>
             <li>Λάβουν άμεση ανατροφοδότηση με αναλυτικές επεξηγήσεις</li>
             <li>
@@ -178,40 +141,24 @@ const goToDashboard = () => {
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-              <svg
-                class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+              <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-blue-100">316 Ερωτήσεις</h3>
+                <h3 class="font-semibold text-gray-900 dark:text-blue-100">418 Ερωτήσεις</h3>
                 <p class="text-sm text-gray-600 dark:text-blue-200">
-                  11 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
+                  13 αξιολογήσεις + 1 μικτή με τυχαίες ερωτήσεις
                 </p>
               </div>
             </div>
 
             <div class="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-              <svg
-                class="w-6 h-6 text-green-600 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                />
+              <svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-green-100">Progressive Web App</h3>
@@ -222,18 +169,10 @@ const goToDashboard = () => {
             </div>
 
             <div class="flex items-start gap-3 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
-              <svg
-                class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414"
-                />
+              <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
               </svg>
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-purple-100">Λειτουργία Offline</h3>
@@ -244,18 +183,10 @@ const goToDashboard = () => {
             </div>
 
             <div class="flex items-start gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
-              <svg
-                class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
+              <svg class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-yellow-100">Παρακολούθηση Προόδου</h3>
@@ -306,12 +237,12 @@ const goToDashboard = () => {
           <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Ανάπτυξη
           </h2>
-          <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+          <div
+            class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0">
                 <div
-                  class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold"
-                >
+                  class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   PT
                 </div>
               </div>
@@ -347,18 +278,9 @@ const goToDashboard = () => {
           </h2>
           <div class="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg p-6">
             <div class="flex items-start gap-3 mb-4">
-              <svg
-                class="w-6 h-6 text-green-600 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
+              <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
@@ -366,61 +288,35 @@ const goToDashboard = () => {
                 </h3>
                 <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
                   <li class="flex items-start gap-2">
-                    <svg
-                      class="w-5 h-5 text-green-600 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
+                    <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
+                        clip-rule="evenodd" />
                     </svg>
-                    <span
-                      >Όλα τα δεδομένα αποθηκεύονται τοπικά στη συσκευή
-                      σας</span
-                    >
+                    <span>Όλα τα δεδομένα αποθηκεύονται τοπικά στη συσκευή
+                      σας</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <svg
-                      class="w-5 h-5 text-green-600 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
+                    <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
+                        clip-rule="evenodd" />
                     </svg>
                     <span>Καμία επικοινωνία με εξωτερικούς servers</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <svg
-                      class="w-5 h-5 text-green-600 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
+                    <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
+                        clip-rule="evenodd" />
                     </svg>
                     <span>Χωρίς tracking ή analytics</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <svg
-                      class="w-5 h-5 text-green-600 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
+                    <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
+                        clip-rule="evenodd" />
                     </svg>
                     <span>Πλήρης έλεγχος των δεδομένων από τον χρήστη</span>
                   </li>
@@ -503,6 +399,18 @@ const goToDashboard = () => {
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-2">
               <h3 class="font-semibold text-gray-900 dark:text-white">
+                Αξιολόγηση 12 - DYPA300: Ανακεφαλαίωση
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μικτό</p>
+            </div>
+            <div class="border-l-4 border-purple-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
+                Αξιολόγηση 13 - DYPA300: Ανακεφαλαίωση Νευρωνικών Δικτύων και Εφαρμογών
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Επίπεδο: Μικτό</p>
+            </div>
+            <div class="border-l-4 border-purple-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 dark:text-white">
                 Μικτή Αξιολόγηση
               </h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -516,20 +424,12 @@ const goToDashboard = () => {
           <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
             Σημείωση Συντήρησης
           </h2>
-          <div class="bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+          <div
+            class="bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
             <div class="flex items-start gap-3">
-              <svg
-                class="w-6 h-6 text-yellow-600 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-                />
+              <svg class="w-6 h-6 text-yellow-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
               <div>
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-3">
@@ -537,53 +437,35 @@ const goToDashboard = () => {
                 </h3>
                 <div class="space-y-3 text-gray-700 dark:text-gray-300">
                   <p>
-                    Το webinar "Εφαρμογές Τεχνητής Νοημοσύνης σε Οργανισμούς και Επιχειρήσεις" 
+                    Το webinar "Εφαρμογές Τεχνητής Νοημοσύνης σε Οργανισμούς και Επιχειρήσεις"
                     ολοκληρώθηκε στις <strong>{{ webinarEndDate }}</strong>.
                   </p>
                   <p>
-                    Η εφαρμογή παραμένει διαθέσιμη για εκπαιδευτικούς σκοπούς, αλλά δεν θα 
+                    Η εφαρμογή παραμένει διαθέσιμη για εκπαιδευτικούς σκοπούς, αλλά δεν θα
                     λαμβάνει νέες ενημερώσεις ή χαρακτηριστικά.
                   </p>
                   <ul class="space-y-2 ml-4">
                     <li class="flex items-start gap-2">
-                      <svg
-                        class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
+                      <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                          clip-rule="evenodd" />
                       </svg>
                       <span>Όλες οι λειτουργίες παραμένουν διαθέσιμες</span>
                     </li>
                     <li class="flex items-start gap-2">
-                      <svg
-                        class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
+                      <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                          clip-rule="evenodd" />
                       </svg>
                       <span>Τα δεδομένα σας παραμένουν ασφαλή</span>
                     </li>
                     <li class="flex items-start gap-2">
-                      <svg
-                        class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
+                      <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                          clip-rule="evenodd" />
                       </svg>
                       <span>Η εφαρμογή μπορεί να χρησιμοποιηθεί offline</span>
                     </li>
@@ -611,14 +493,12 @@ const goToDashboard = () => {
               </div>
               <div>
                 <p class="text-gray-600 dark:text-gray-400">Κατάσταση:</p>
-                <p 
-                  :class="[
-                    'font-semibold',
-                    statusCode === 'active' 
-                      ? 'text-green-600 dark:text-green-400' 
-                      : 'text-yellow-600 dark:text-yellow-400'
-                  ]"
-                >
+                <p :class="[
+                  'font-semibold',
+                  statusCode === 'active'
+                    ? 'text-green-600 dark:text-green-400'
+                    : 'text-yellow-600 dark:text-yellow-400'
+                ]">
                   {{ status }}
                 </p>
               </div>
@@ -636,7 +516,7 @@ const goToDashboard = () => {
           </h2>
           <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
             Για περισσότερες πληροφορίες σχετικά με το webinar ή την εφαρμογή,
-            επικοινωνήστε με την ομάδα του Datalabs.
+            επικοινωνήστε με την ομάδα του website.
           </p>
         </section>
       </div>
@@ -644,18 +524,11 @@ const goToDashboard = () => {
       <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
         <p class="text-sm text-gray-600 dark:text-gray-400">
           © 2025
-          <a
-            href="https://pantelis.theodosiou.me"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue-600 hover:text-blue-700 hover:underline font-medium"
-          >
-            Pantelis Theodosiou
-          </a>
-          . All rights reserved.
+          <a href="https://pantelis.theodosiou.me" target="_blank" rel="noopener noreferrer"
+            class="text-blue-600 hover:text-blue-700 hover:underline font-medium">Pantelis Theodosiou</a>. All rights
+          reserved.
         </p>
       </div>
     </div>
   </div>
 </template>
-

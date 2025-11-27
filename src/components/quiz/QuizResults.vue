@@ -20,10 +20,33 @@ const props = defineProps({
 
 const router = useRouter();
 
+// Helper function to check if an answer is correct
+const isAnswerCorrect = (question, userAnswer) => {
+  const correctIndex = question.correctIndex;
+  
+  // Handle multiple correct answers (array)
+  if (Array.isArray(correctIndex)) {
+    if (!Array.isArray(userAnswer)) {
+      return false;
+    }
+    // Sort both arrays for comparison
+    const sortedCorrect = [...correctIndex].sort((a, b) => a - b);
+    const sortedUser = [...userAnswer].sort((a, b) => a - b);
+    // Check if arrays have same length and all elements match
+    if (sortedCorrect.length !== sortedUser.length) {
+      return false;
+    }
+    return sortedCorrect.every((val, idx) => val === sortedUser[idx]);
+  }
+  
+  // Handle single correct answer (number)
+  return userAnswer === correctIndex;
+};
+
 const score = computed(() => {
   let correct = 0;
   props.assessment.questions.forEach((question) => {
-    if (props.answers[question.id] === question.correctIndex) {
+    if (isAnswerCorrect(question, props.answers[question.id])) {
       correct++;
     }
   });
@@ -50,9 +73,29 @@ const goToDashboard = () => {
   router.push("/");
 };
 
-const isCorrect = (questionId, answerIndex) => {
+const isCorrect = (questionId, userAnswer) => {
   const question = props.assessment.questions.find((q) => q.id === questionId);
-  return answerIndex === question.correctIndex;
+  if (!question) return false;
+  return isAnswerCorrect(question, userAnswer);
+};
+
+const isMultipleChoice = (question) => {
+  return Array.isArray(question.correctIndex);
+};
+
+const isCorrectAnswer = (question, index) => {
+  if (isMultipleChoice(question)) {
+    return question.correctIndex.includes(index);
+  }
+  return index === question.correctIndex;
+};
+
+const isUserAnswer = (questionId, index) => {
+  const userAnswer = props.answers[questionId];
+  if (Array.isArray(userAnswer)) {
+    return userAnswer.includes(index);
+  }
+  return userAnswer === index;
 };
 
 const formattedTime = computed(() => {
@@ -237,9 +280,11 @@ const formattedTime = computed(() => {
             :key="index"
             :class="[
               'p-3 rounded-lg text-sm',
-              index === question.correctIndex
+              isCorrectAnswer(question, index) && isUserAnswer(question.id, index)
                 ? 'bg-green-50 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600'
-                : answers[question.id] === index
+                : isCorrectAnswer(question, index) && !isUserAnswer(question.id, index)
+                ? 'bg-green-50 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 border-dashed'
+                : !isCorrectAnswer(question, index) && isUserAnswer(question.id, index)
                 ? 'bg-red-50 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600'
                 : 'bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600',
             ]"
@@ -247,24 +292,31 @@ const formattedTime = computed(() => {
             <div class="flex items-center justify-between">
               <span
                 :class="[
-                  index === question.correctIndex
+                  isCorrectAnswer(question, index)
                     ? 'text-green-900 dark:text-green-300 font-medium'
-                    : answers[question.id] === index
+                    : isUserAnswer(question.id, index)
                     ? 'text-red-900 dark:text-red-300'
                     : 'text-gray-600 dark:text-gray-300',
                 ]"
               >
                 {{ option }}
               </span>
-              <span v-if="index === question.correctIndex" class="text-xs font-medium text-green-700 dark:text-green-400">
-                Σωστή
-              </span>
-              <span
-                v-else-if="answers[question.id] === index"
-                class="text-xs font-medium text-red-700 dark:text-red-400"
-              >
-                Η επιλογή σας
-              </span>
+              <div class="flex items-center gap-2">
+                <span v-if="isCorrectAnswer(question, index)" class="text-xs font-medium text-green-700 dark:text-green-400">
+                  Σωστή
+                </span>
+                <span
+                  v-if="isUserAnswer(question.id, index)"
+                  :class="[
+                    'text-xs font-medium',
+                    isCorrectAnswer(question, index)
+                      ? 'text-green-700 dark:text-green-400'
+                      : 'text-red-700 dark:text-red-400'
+                  ]"
+                >
+                  {{ isCorrectAnswer(question, index) ? 'Επιλέξατε' : 'Η επιλογή σας' }}
+                </span>
+              </div>
             </div>
           </div>
         </div>

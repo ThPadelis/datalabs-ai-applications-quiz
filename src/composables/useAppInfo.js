@@ -4,6 +4,7 @@ export function useAppInfo() {
   const version = rawVersion.replace(/^v/, '').trim()
   
   const buildDate = import.meta.env.VITE_BUILD_DATE || new Date().toLocaleDateString('el-GR', {
+    day: 'numeric',
     month: 'long',
     year: 'numeric'
   })

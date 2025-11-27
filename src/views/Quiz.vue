@@ -62,7 +62,15 @@ const progress = computed(() => {
 const unansweredQuestions = computed(() => {
   if (!assessment.value) return [];
   return assessment.value.questions
-    .filter((q) => answers.value[q.id] === undefined)
+    .filter((q) => {
+      const answer = answers.value[q.id];
+      if (answer === undefined || answer === null) return true;
+      // For multiple choice, check if array is empty
+      if (Array.isArray(answer)) {
+        return answer.length === 0;
+      }
+      return false;
+    })
     .map((q) => q.id);
 });
 
@@ -75,9 +83,14 @@ const formattedTime = computed(() => {
 const selectAnswer = (answerIndex) => {
   answers.value[currentQuestion.value.id] = answerIndex;
   
-  setTimeout(() => {
-    nextQuestion();
-  }, 300);
+  // Only auto-advance for single choice questions
+  // Multiple choice questions require manual navigation
+  const isMultipleChoice = Array.isArray(currentQuestion.value?.correctIndex);
+  if (!isMultipleChoice) {
+    setTimeout(() => {
+      nextQuestion();
+    }, 300);
+  }
 };
 
 const nextQuestion = () => {
@@ -104,6 +117,29 @@ const attemptFinishQuiz = () => {
   }
 };
 
+// Helper function to check if an answer is correct
+const isAnswerCorrect = (question, userAnswer) => {
+  const correctIndex = question.correctIndex;
+  
+  // Handle multiple correct answers (array)
+  if (Array.isArray(correctIndex)) {
+    if (!Array.isArray(userAnswer)) {
+      return false;
+    }
+    // Sort both arrays for comparison
+    const sortedCorrect = [...correctIndex].sort((a, b) => a - b);
+    const sortedUser = [...userAnswer].sort((a, b) => a - b);
+    // Check if arrays have same length and all elements match
+    if (sortedCorrect.length !== sortedUser.length) {
+      return false;
+    }
+    return sortedCorrect.every((val, idx) => val === sortedUser[idx]);
+  }
+  
+  // Handle single correct answer (number)
+  return userAnswer === correctIndex;
+};
+
 const finishQuiz = async () => {
   if (timerInterval) {
     clearInterval(timerInterval);
@@ -112,7 +148,7 @@ const finishQuiz = async () => {
 
   let correctAnswers = 0;
   assessment.value.questions.forEach((question) => {
-    if (answers.value[question.id] === question.correctIndex) {
+    if (isAnswerCorrect(question, answers.value[question.id])) {
       correctAnswers++;
     }
   });
@@ -146,9 +182,14 @@ const closeModal = () => {
 const reviewQuestions = () => {
   showUnansweredModal.value = false;
   if (unansweredQuestions.value.length > 0) {
-    const firstUnanswered = assessment.value.questions.findIndex(
-      (q) => answers.value[q.id] === undefined
-    );
+    const firstUnanswered = assessment.value.questions.findIndex((q) => {
+      const answer = answers.value[q.id];
+      if (answer === undefined || answer === null) return true;
+      if (Array.isArray(answer)) {
+        return answer.length === 0;
+      }
+      return false;
+    });
     if (firstUnanswered !== -1) {
       currentQuestionIndex.value = firstUnanswered;
     }
