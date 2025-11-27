@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.4.0...v1.5.0) (2025-11-27)
+
+
+### Features
+
+* add assessment-12 and assessment-13 with 102 new questions ([bb0d0db](https://github.com/ThPadelis/datalabs-ai-applications-quiz/commit/bb0d0dbdfab6db81eaff191780e4aaafab4f8a4f))
+
 # [1.4.0](https://github.com/ThPadelis/datalabs-ai-applications-quiz/compare/v1.3.0...v1.4.0) (2025-11-15)
 
 
